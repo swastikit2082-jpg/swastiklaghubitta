@@ -616,3 +616,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// CEO Section Scroll Animation
+function initCEOAnimation() {
+    const ceoSection = document.querySelector('.ceo-section');
+    if (!ceoSection) return;
+    
+    const ceoImage = ceoSection.querySelector('.ceo-image');
+    const ceoInfo = ceoSection.querySelector('.ceo-info');
+    
+    // Create intersection observer for CEO section
+    const ceoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add animation classes with delay
+                if (ceoImage) {
+                    setTimeout(() => {
+                        ceoImage.classList.add('ceo-animate');
+                    }, 200);
+                }
+                if (ceoInfo) {
+                    setTimeout(() => {
+                        ceoInfo.classList.add('ceo-animate');
+                    }, 400);
+                }
+                ceoObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3, rootMargin: '0px 0px -100px 0px' });
+    
+    ceoObserver.observe(ceoSection);
+}
+
+// Initialize CEO animation
+document.addEventListener('DOMContentLoaded', function() {
+    initCEOAnimation();
+});
