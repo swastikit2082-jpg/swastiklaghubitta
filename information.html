@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="ne" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>जानकारी | स्वस्तिक लघुवित्त</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="common.js"></script>
+    <style>
+        /* ========================================
+           BLUE THEME FOR INFORMATION PAGE
+           ======================================== */
+        
+        :root {
+            --primary-dark: #1e3c72;
+            --primary-blue: #2a5298;
+            --accent-gold: #f59e0b;
+            --accent-orange: #f97316;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+
+        header.scrolled {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            box-shadow: 0 4px 20px rgba(30, 60, 114, 0.3);
+        }
+
+        .nav-links a:hover, 
+        .nav-links a.active {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white !important;
+        }
+
+        .info-hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+            min-height: 50vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .info-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(42, 82, 152, 0.3) 0%, transparent 40%);
+            animation: blue-aurora 15s ease-in-out infinite;
+        }
+
+        @keyframes blue-aurora {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .info-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .info-hero p {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-shape {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-shape-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(249, 115, 22, 0.2));
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .hero-shape-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(42, 82, 152, 0.4), rgba(30, 60, 114, 0.3));
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .hero-shape-3 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(249, 115, 22, 0.1));
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        /* Quick Links Section */
+        .quick-links {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .quick-links h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #1e3c72, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .quick-links > .container > p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(30, 60, 114, 0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-color: #f59e0b;
+            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.2);
+        }
+
+        .info-card-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            transition: all 0.4s ease;
+        }
+
+        .info-card:hover .info-card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .info-card.notice .info-card-icon {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+        }
+
+        .info-card.report .info-card-icon {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .info-card.download .info-card-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .info-card.contact .info-card-icon {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .info-card h3 {
+            font-size: 1.8rem;
+            color: #1e3c72;
+            margin-bottom: 1rem;
+        }
+
+        .info-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-card .btn-info {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .info-card .btn-info:hover {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: translateX(5px);
+        }
+
+        /* Notice Preview Section */
+        .notice-preview {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .notice-preview h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #1e3c72, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .notice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .notice-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .notice-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(245, 158, 11, 0.2);
+        }
+
+        .notice-date {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .notice-item h3 {
+            color: #1e3c72;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .notice-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .notice-link {
+            color: #f59e0b;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .notice-link:hover {
+            color: #f97316;
+            gap: 10px;
+        }
+
+        /* Reports Preview Section */
+        .reports-preview {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .reports-preview h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .report-card {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .report-card:hover {
+            border-color: #1e3c72;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(30, 60, 114, 0.15);
+        }
+
+        .report-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .report-card h3 {
+            color: #1e3c72;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .report-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .report-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: #1e3c72;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .report-btn:hover {
+            background: #f59e0b;
+        }
+
+        /* Stats Section */
+        .info-stats {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .info-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .info-stat-item {
+            color: white;
+        }
+
+        .info-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .info-stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .scroll-indicator span {
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: scroll-bounce 2s infinite;
+        }
+
+        .scroll-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .scroll-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes scroll-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        footer h4 {
+            color: #f59e0b;
+        }
+
+        footer a:hover {
+            color: #f59e0b;
+        }
+
+        .preloader {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .preloader-spinner {
+            border: 4px solid rgba(245, 158, 11, 0.3);
+            border-top: 4px solid #f59e0b;
+        }
+
+        @media (max-width: 768px) {
+            .info-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .info-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .notice-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================
+           AI CHATBOT STYLES
+           ======================================== */
+        .ai-chatbot-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(30, 60, 114, 0.4);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(30, 60, 114, 0.5);
+        }
+
+        .ai-chatbot-toggle::before {
+            content: '🤖';
+        }
+
+        .ai-chatbot-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #f59e0b;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .ai-chatbot-window {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 380px;
+            height: 520px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+            z-index: 9998;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .ai-chatbot-window.show {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .ai-chatbot-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ai-chatbot-header-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .ai-chatbot-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .ai-chatbot-subtitle {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+
+        .ai-chatbot-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .ai-chatbot-minimize,
+        .ai-chatbot-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-minimize:hover,
+        .ai-chatbot-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .ai-chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ai-chatbot-message {
+            display: flex;
+            gap: 10px;
+            max-width: 85%;
+        }
+
+        .ai-chatbot-message-user {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+        }
+
+        .ai-chatbot-message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .ai-chatbot-message-bot .ai-chatbot-message-avatar {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+        }
+
+        .ai-chatbot-message-user .ai-chatbot-message-avatar {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+        }
+
+        .ai-chatbot-message-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .ai-chatbot-message-bubble {
+            padding: 10px 14px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .ai-chatbot-message-bot .ai-chatbot-message-bubble {
+            background: white;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .ai-chatbot-message-user .ai-chatbot-message-bubble {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .ai-chatbot-message-time {
+            font-size: 0.7rem;
+            color: #999;
+            padding: 0 5px;
+        }
+
+        .ai-chatbot-message-user .ai-chatbot-message-time {
+            text-align: right;
+        }
+
+        .ai-chatbot-typing {
+            display: none;
+            padding: 10px 14px;
+            background: white;
+            border-radius: 15px;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .ai-chatbot-typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .ai-chatbot-typing-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #1e3c72;
+            animation: typingBounce 1.4s infinite;
+        }
+
+        .ai-chatbot-typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .ai-chatbot-typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .ai-chatbot-input-area {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .ai-chatbot-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-input:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+
+        .ai-chatbot-send {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-send:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+        }
+
+        .ai-chatbot-voice {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f59e0b;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-voice:hover {
+            transform: scale(1.1);
+            background: #f97316;
+        }
+
+        .ai-chatbot-voice.listening {
+            background: #ef4444;
+            animation: voicePulse 1s infinite;
+        }
+
+        @keyframes voicePulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            50% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+        }
+
+        .ai-chatbot-quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 15px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .ai-chatbot-quick-reply {
+            padding: 8px 15px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-quick-reply:hover {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-color: #1e3c72;
+        }
+
+        @media (max-width: 480px) {
+            .ai-chatbot-window {
+                width: calc(100% - 20px);
+                right: 10px;
+                bottom: 90px;
+                height: calc(100vh - 150px);
+            }
+            
+            .ai-chatbot-toggle {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">
+            <img src="logo.png" alt="स्वस्तिक लघुवित्त">
+        </div>
+        <div class="preloader-text">स्वस्तिक लघुवित्त</div>
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="स्वस्तिक लघुवित्त वित्तीय संस्था लिमिटेड">
+                </a>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">🏠 मुख्य पृष्ठ</a></li>
+                    <li><a href="Service.html">💼 सेवाहरू</a></li>
+                    <li><a href="about.html">ℹ️ हाम्रो बारेमा</a></li>
+                    <li><a href="news.html">📰 समाचार</a></li>
+                    <li><a href="contact.html">📞 सम्पर्क</a></li>
+                    <li><a href="photos.html">📸 फोटोहरू</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <!-- <div id="datetime-display" style="background: rgba(255,255,255,0.15); padding: 8px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-right: 10px; white-space: nowrap;"></div> -->
+                    <a href="information.html" class="btn-login" style="background: linear-gradient(135deg, #f59e0b, #f97316);">📋 जानकारी</a>
+                <a href="career.html" class="btn-career">💼 Career</a>
+                </div>
+            <!-- </div>
+             <div class="auth-buttons">
+                    <!-- Date Time Display -->
+                    <!-- <div id="datetime-display" style="
+                        background: rgba(255,255,255,0.15);
+                        padding: 8px 15px;
+                        border-radius: 20px;
+                        font-size: 0.85rem;
+                        font-weight: 600;
+                        margin-right: 10px;
+                        white-space: nowrap;
+                    "></div> -->
+                    <!-- <a href="login.html" class="btn-login">🔑 Login</a> -->
+                    
+                </div> 
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="info-hero">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+        
+        <div class="container">
+            <div class="glass-dark">
+                <h1>जानकारी केन्द्र</h1>
+                <p>स्वस्तिक लघुवित्त वित्तीय संस्था लिमिटेड - सूचना र प्रतिवेदनहरू</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="quick-links">
+        <div class="container">
+            <h2>छिटो लिङ्कहरू</h2>
+            <p>तपाईंलाई चाहिने जानकारीहरूको लागि तलका लिङ्कहरूमा क्लिक गर्नुहोस्</p>
+            
+            <div class="info-cards">
+                <div class="info-card notice" onclick="window.location.href='notice.html'">
+                    <div class="info-card-icon">📢</div>
+                    <h3>सूचनाहरू</h3>
+                    <p>कम्पनीका नवीनतम सूचना, सुचना पत्र, र महत्वपूर्ण घोषणाहरू</p>
+                    <span class="btn-info">सूचना हेर्नुहोस् →</span>
+                </div>
+                
+                <div class="info-card report" onclick="window.location.href='report.html'">
+                    <div class="info-card-icon">📊</div>
+                    <h3>प्रतिवेदनहरू</h3>
+                    <p>वार्षिक प्रतिवेदन, वित्तीय विवरण, र अन्य महत्वपूर्ण दस्तावेज़हरू</p>
+                    <span class="btn-info">प्रतिवेदन हेर्नुहोस् →</span>
+                </div>
+                
+                <div class="info-card download" onclick="window.location.href='report.html'">
+                    <div class="info-card-icon">📥</div>
+                    <h3>डाउनलोड</h3>
+                    <p>फारम, नीति नियम, र अन्य दस्तावेज़हरू डाउनलोड गर्नुहोस्</p>
+                    <span class="btn-info">डाउनलोड गर्नुहोस् →</span>
+                </div>
+                
+                <div class="info-card contact" onclick="window.location.href='contact.html'">
+                    <div class="info-card-icon">📞</div>
+                    <h3>सम्पर्क</h3>
+                    <p>हामीसँग सम्पर्क गर्नुहोस्</p>
+                    <span class="btn-info">सम्पर्क गर्नुहोस् →</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="info-stats">
+        <div class="container">
+            <div class="info-stats-grid">
+                <div class="info-stat-item">
+                    <div class="info-stat-number">15+</div>
+                    <div class="info-stat-label">शाखा कार्यालय</div>
+                </div>
+                <div class="info-stat-item">
+                    <div class="info-stat-number">75,000+</div>
+                    <div class="info-stat-label">सन्तुष्ट ग्राहक</div>
+                </div>
+                <div class="info-stat-item">
+                    <div class="info-stat-number">15+</div>
+                    <div class="info-stat-label">अर्ब कुल लगानी</div>
+                </div>
+                <div class="info-stat-item">
+                    <div class="info-stat-number">99%</div>
+                    <div class="info-stat-label">पुनर्भरण दर</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notice Preview Section -->
+    <section class="notice-preview">
+        <div class="container">
+            <h2>नवीनतम सूचनाहरू</h2>
+            
+            <div class="notice-grid">
+                <div class="notice-item">
+                    <span class="notice-date">2082 माघ 15</span>
+                    <h3>नयाँ शाखा उद्घाटनको सूचना</h3>
+                    <p>हाम्रो नयाँ शाखा कार्यालय लहानमा उद्घाटन हुन गइरहेको छ।</p>
+                    <a href="notice.html" class="notice-link">थप जान्नुहोस् →</a>
+                </div>
+                
+                <div class="notice-item">
+                    <span class="notice-date">2082 माघ 10</span>
+                    <h3>ऋण आवेदन प्रक्रियामा परिवर्तन</h3>
+                    <p>ऋण आवेदन प्रक्रियामा केही परिवर्तन ल्याइएको छ।</p>
+                    <a href="notice.html" class="notice-link">थप जान्नुहोस् →</a>
+                </div>
+                
+                <div class="notice-item">
+                    <span class="notice-date">2082 माघ 05</span>
+                    <h3>ब्याजदरमा परिवर्तन</h3>
+                    <p>नयाँ ब्याजदरहरू लागू भएका छन्। विस्तृत जानकारीको लागि हेर्नुहोस्।</p>
+                    <a href="notice.html" class="notice-link">थप जान्नुहोस् →</a>
+                </div>
+                
+                <div class="notice-item">
+                    <span class="notice-date">2082 पौष 28</span>
+                    <h3>नेपाल राष्ट्र बैंकको निर्देशन</h3>
+                    <p>नेपाल राष्ट्र बैंकको नवीनतम निर्देशनको बारेमा जानकारी।</p>
+                    <a href="notice.html" class="notice-link">थप जान्नुहोस् →</a>
+                </div>
+                
+                <div class="notice-item">
+                    <span class="notice-date">2082 पौष 20</span>
+                    <h3>उत्कृष्ट ग्राहक पुरस्कार</h3>
+                    <p>हाम्रो संस्थाले उत्कृष्ट सेवा पुरस्कार प्राप्त गरेको छ।</p>
+                    <a href="notice.html" class="notice-link">थप जान्नुहोस् →</a>
+                </div>
+                
+                <div class="notice-item">
+                    <span class="notice-date">2082 पौष 15</span>
+                    <h3>कार्यालय समय परिवर्तन</h3>
+                    <p>आगामी पर्वको कारणले कार्यालय समयमा परिवर्तन भएको छ।</p>
+                    <a href="notice.html" class="notice-link">थप जान्नुहोस् →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Preview Section -->
+    <section class="reports-preview">
+        <div class="container">
+            <h2>महत्वपूर्ण प्रतिवेदनहरू</h2>
+            
+            <div class="report-grid">
+                <div class="report-card">
+                    <div class="report-icon">📈</div>
+                    <h3>वार्षिक प्रतिवेदन</h3>
+                    <p>आर्थिक वर्ष 2081/82 को वार्षिक प्रतिवेदन</p>
+                    <a href="report.html" class="report-btn">हेर्नुहोस्</a>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">💰</div>
+                    <h3>वित्तीय विवरण</h3>
+                    <p>त्रैमासिक र वार्षिक वित्तीय विवरणहरू</p>
+                    <a href="report.html" class="report-btn">हेर्नुहोस्</a>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">📋</div>
+                    <h3>शासन प्रणाली</h3>
+                    <p>कम्पनी शासन प्रणाली र नीति नियमहरू</p>
+                    <a href="report.html" class="report-btn">हेर्नुहोस्</a>
+                </div>
+                
+                <div class="report-card">
+                    <div class="report-icon">🏆</div>
+                    <h3>उपलब्धिहरू</h3>
+                    <p>हाम्रा विगतका उपलब्धि र पुरस्कारहरू</p>
+                    <a href="report.html" class="report-btn">हेर्नुहोस्</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="स्वस्तिक">
+                        <div class="footer-logo-text">
+                            <h3>स्वस्तिक लघुवित्त</h3>
+                            <p>वित्तीय संस्था लिमिटेड</p>
+                        </div>
+                    </div>
+                    <p>नेपाल राष्ट्र बैंक दर्ता नं: क/०३६/०२७<br>कम्पनी दर्ता नं: ६०६५६२७०६</p>
+                    <div class="social-links">
+                        <ul>
+                            <li><a href="https://www.facebook.com/share/18MC7VDGaR/" target="_blank">Facebook</a></li>
+                            <li><a href="https://www.tiktok.com/@swastiklaghubitta?is_from_webapp=1&sender_device=pc" target="_blank">Tiktok</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCdu6HT8zTUpHM8_EKTUJBww" target="_blank">Youtube</a></li>
+                        <!-- <a href="https://facebook.com/swastiklaghubitta" target="_blank">Facebook</a>
+                        <a href="https://www.tiktok.com/@swastiklaghubitta?is_from_webapp=1&sender_device=pc" target="_blank"><span>Tiktok</span></a>
+                        <a href="UCdu6HT8zTUpHM8_EKTUJBww" target="_blank"><span>Youtube</span></a> -->
+                    </div>
+                </div>
+               <div>
+                    <h4>महत्त्वपूर्ण लिङ्कहरू</h4>
+                    <ul>
+                        <li><a href="index.html">मुख्य पृष्ठ</a></li>
+                        <li><a href="Service.html">सेवाहरू</a></li>
+                        <li><a href="about.html">हाम्रो बारेमा</a></li>
+                        <li><a href="news.html">समाचार</a></li>
+                        <li><a href="contact.html">सम्पर्क</a></li>
+                        <li><a href="photos.html">फोटोहरू</a></li>
+                        <li><a href="information.html">जानकारी</a></li>
+                    </ul>
+                </div>
+                    <div>
+                    <h4> अन्य महत्त्वपूर्ण लिङ्कहरू</h4>
+                    <ul>
+                        <li><a href="https://www.nrb.org.np">नेपाल राष्ट्र बैंक</a></li>
+                        <li><a href="https://gunaso.nrb.org.np">NRB उजुरी पोर्टल</a></li>
+                        <li><a href="notice.html">सूचना बोर्ड</a></li>
+                        <!-- <li><a href="about.html">हाम्रो बारेमा</a></li>
+                        <li><a href="news.html">समाचार</a></li>
+                        <li><a href="contact.html">सम्पर्क</a></li>
+                        <li><a href="photos.html">फोटोहरू</a></li>
+                        <li><a href="https://gunaso.nrb.org.np">जानकारी</a></li> -->
+                         
+                    </ul>
+                </div>
+                <div>
+                    <h4>कार्यालय खोज्नुहोस्</h4>
+                    <p>📍 लहान-८, सिराहा<br>मधेश प्रदेश, नेपाल</p>
+                    <p>📞 ०३३-५६३०६७</p>
+                    <p>📧 info@swastikmicrofinance.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: #FFD700;">&copy; २०७५ स्वस्तिक लघुवित्त वित्तीय संस्था लिमिटेड। सबै अधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot
+    <button id="aiChatbotToggle" class="ai-chatbot-toggle" onclick="toggleAIChatbot()">
+        <span id="aiChatbotBadge" class="ai-chatbot-badge">!</span>
+    </button>
+
+    <div id="aiChatbotWindow" class="ai-chatbot-window">
+        <div class="ai-chatbot-header">
+            <div class="ai-chatbot-header-info">
+                <div class="ai-chatbot-avatar">🤖</div>
+                <div>
+                    <div class="ai-chatbot-title">AI सहायक</div>
+                    <div class="ai-chatbot-subtitle">स्वस्तिक लघुवित्त</div>
+                </div>
+            </div>
+            <div class="ai-chatbot-actions">
+                <button class="ai-chatbot-minimize" onclick="minimizeAIChatbot()">−</button>
+                <button class="ai-chatbot-close" onclick="closeAIChatbot()">×</button>
+            </div>
+        </div>
+        <div id="aiChatbotMessages" class="ai-chatbot-messages">
+            <div class="ai-chatbot-message ai-chatbot-message-bot">
+                <div class="ai-chatbot-message-avatar">🤖</div>
+                <div class="ai-chatbot-message-content">
+                    <div class="ai-chatbot-message-bubble">
+                        नमस्ते! 👋<br><br>म स्वस्तिक लघुवित्तको AI सहायक हुँ।<br><br>तपाईंलाई कस्तो सहायता चाहिएको छ?
+                    </div>
+                    <span class="ai-chatbot-message-time">अहिले</span>
+                </div>
+            </div>
+        </div>
+        <div id="aiChatbotTyping" class="ai-chatbot-typing" style="display: none;">
+            <div class="ai-chatbot-message ai-chatbot-message-bot">
+                <div class="ai-chatbot-message-avatar">🤖</div>
+                <div class="ai-chatbot-message-content">
+                    <div class="ai-chatbot-typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ai-chatbot-quick-replies">
+            <span class="ai-chatbot-quick-reply" onclick="quickAIReply('ऋण कसरी लिने?')">ऋण कसरी लिने?</span>
+            <span class="ai-chatbot-quick-reply" onclick="quickAIReply('ब्याजदर')">ब्याजदर</span>
+            <span class="ai-chatbot-quick-reply" onclick="quickAIReply('शाखा कार्यालय')">शाखा</span>
+            <span class="ai-chatbot-quick-reply" onclick="quickAIReply('सम्पर्क')">सम्पर्क</span>
+        </div>
+        <div class="ai-chatbot-input-area">
+            <input type="text" id="aiChatbotInput" class="ai-chatbot-input" placeholder="तपाईंको प्रश्न लेख्नुहोस्..." onkeypress="handleAIChatKeyPress(event)">
+            <button class="ai-chatbot-send" onclick="sendAIChatMessage()">➤</button>
+            <button id="aiVoiceBtn" class="ai-chatbot-voice" onclick="toggleVoiceInput()">🎤</button>
+        </div>
+    </div>
+
+    <script src="ai-chatbot.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('fade-out');
+            }, 1500);
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script> -->
+     <!-- WhatsApp Chat Button -->
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/9815298144" target="_blank" class="whatsapp-btn">
+            <svg viewBox="0 0 24 24" width="40" height="40">
+                <path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span>हामीसँग च्याट गर्नुहोस्</span>
+        </a>
+    </div>
+
+    <!-- Advanced AI Chatbot -->
+    <div class="ai-chatbot" id="aiChatbot">
+        <div class="ai-chatbot-toggle" id="aiChatbotToggle" onclick="toggleAIChatbot()">
+            <div class="ai-chatbot-toggle-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </div>
+            <div class="ai-chatbot-toggle-badge" id="aiChatbotBadge">नयाँ</div>
+        </div>
+        
+        <div class="ai-chatbot-window" id="aiChatbotWindow">
+            <div class="ai-chatbot-header">
+                <div class="ai-chatbot-header-info">
+                    <div class="ai-chatbot-avatar">
+                        <div class="ai-chatbot-avatar-inner">🤖</div>
+                        <div class="ai-chatbot-status"></div>
+                    </div>
+                    <div class="ai-chatbot-header-text">
+                        <h4>स्वस्तिक AI सहायक</h4>
+                        <span>अनलाइन • तपाईंलाई मदद गर्न तयार</span>
+                    </div>
+                </div>
+                <div class="ai-chatbot-header-actions">
+                    <button class="ai-chatbot-btn" onclick="minimizeAIChatbot()" title="घटाउनुहोस्">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                    <button class="ai-chatbot-btn" onclick="closeAIChatbot()" title="बन्द गर्नुहोस्">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="ai-chatbot-messages" id="aiChatbotMessages">
+                <div class="ai-chatbot-message ai-chatbot-message-bot">
+                    <div class="ai-chatbot-message-avatar">🤖</div>
+                    <div class="ai-chatbot-message-content">
+                        <div class="ai-chatbot-message-bubble">
+                            <p>नमस्ते! 👋</p>
+                            <p>म <strong>स्वस्तिक लघुवित्तको AI सहायक</strong> हुँ।</p>
+                            <p>तपाईंलाई कुन सहायता चाहिएको छ? म तपाईंको प्रश्नहरूको उत्तर दिन तयार छु। 💼</p>
+                        </div>
+                        <span class="ai-chatbot-message-time">अहिले</span>
+                    </div>
+                </div>
+                
+                <div class="ai-chatbot-quick-actions">
+                    <p>छिटो कार्यहरू:</p>
+                    <div class="ai-chatbot-quick-buttons">
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('ऋण कसरी लिने?')">💰 ऋण कसरी लिने?</button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('ब्याजदर कति छ?')">📊 ब्याजदर कति छ?</button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('शाखा कार्यालय')">🏢 शाखा कार्यालय</button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('आवेदन प्रक्रिया')">📝 आवेदन प्रक्रिया</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-chatbot-typing" id="aiChatbotTyping" style="display: none;">
+                <div class="ai-chatbot-message ai-chatbot-message-bot">
+                    <div class="ai-chatbot-message-avatar">🤖</div>
+                    <div class="ai-chatbot-message-content">
+                        <div class="ai-chatbot-message-bubble">
+                            <div class="ai-chatbot-typing-dots"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-chatbot-input-area">
+                <div class="ai-chatbot-input-wrapper">
+                    <button class="ai-chatbot-voice-btn" id="aiVoiceBtn" onclick="toggleVoiceInput()" title="आवाज़">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                    </button>
+                    <input type="text" id="aiChatbotInput" placeholder="तपाईंको प्रश्न लेख्नुहोस्..." onkeypress="handleAIChatKeyPress(event)">
+                    <button class="ai-chatbot-send-btn" onclick="sendAIChatMessage()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+                <div class="ai-chatbot-powered"><span>🔒 सुरक्षित च्याट</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Styles -->
+    <style>
+        .whatsapp-chat { position: fixed; bottom: 30px; left: 30px; z-index: 1000; }
+        .whatsapp-btn { display: flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: all 0.3s ease; }
+        .whatsapp-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+        .ai-chatbot { position: fixed; bottom: 30px; right: 30px; z-index: 10000; font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif; }
+        .ai-chatbot-toggle { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 25px rgba(30, 60, 114, 0.5); transition: all 0.4s; position: relative; border: 3px solid #f59e0b; }
+        .ai-chatbot-toggle:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(30, 60, 114, 0.7); }
+        .ai-chatbot-toggle-icon { color: white; animation: pulse-icon 2s ease-in-out infinite; }
+        @keyframes pulse-icon { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .ai-chatbot-toggle-badge { position: absolute; top: -5px; right: -5px; background: #f59e0b; color: #0a1628; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 10px; animation: badge-pulse 1.5s ease-in-out infinite; }
+        @keyframes badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        .ai-chatbot-window { position: absolute; bottom: 80px; right: 0; width: 380px; height: 520px; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: none; flex-direction: column; overflow: hidden; border: 2px solid rgba(245, 158, 11, 0.3); animation: window-appear 0.4s; }
+        .ai-chatbot-window.show { display: flex; }
+        @keyframes window-appear { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .ai-chatbot-header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .ai-chatbot-header-info { display: flex; align-items: center; gap: 12px; }
+        .ai-chatbot-avatar { position: relative; width: 45px; height: 45px; }
+        .ai-chatbot-avatar-inner { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #f97316); display: flex; align-items: center; justify-content: center; font-size: 24px; border: 2px solid white; }
+        .ai-chatbot-status { position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background: #22c55e; border-radius: 50%; border: 2px solid #1e3c72; animation: status-pulse 2s ease-in-out infinite; }
+        @keyframes status-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .ai-chatbot-header-text h4 { color: white; font-size: 16px; font-weight: 700; margin: 0; }
+        .ai-chatbot-header-text span { color: rgba(255, 255, 255, 0.8); font-size: 12px; }
+        .ai-chatbot-header-actions { display: flex; gap: 8px; }
+        .ai-chatbot-btn { width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .ai-chatbot-btn:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.1); }
+        .ai-chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .ai-chatbot-message { display: flex; gap: 10px; align-items: flex-start; }
+        .ai-chatbot-message-user { flex-direction: row-reverse; }
+        .ai-chatbot-message-avatar { width: 35px; height: 35px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #f97316); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+        .ai-chatbot-message-content { max-width: 75%; }
+        .ai-chatbot-message-user .ai-chatbot-message-content { text-align: right; }
+        .ai-chatbot-message-bubble { background: #f1f5f9; padding: 12px 16px; border-radius: 18px; border-bottom-left-radius: 4px; font-size: 14px; line-height: 1.6; color: #334155; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+        .ai-chatbot-message-user .ai-chatbot-message-bubble { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border-bottom-left-radius: 18px; border-bottom-right-radius: 4px; }
+        .ai-chatbot-message-bubble p { margin: 0; color: inherit; }
+        .ai-chatbot-message-bubble p + p { margin-top: 8px; }
+        .ai-chatbot-message-time { font-size: 11px; color: #94a3b8; margin-top: 5px; display: block; }
+        .ai-chatbot-quick-actions { background: rgba(245, 158, 11, 0.08); padding: 12px; border-radius: 12px; margin-top: 5px; }
+        .ai-chatbot-quick-actions p { font-size: 12px; color: #64748b; margin: 0 0 10px 0; font-weight: 600; }
+        .ai-chatbot-quick-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+        .ai-chatbot-quick-btn { background: white; border: 1px solid #e2e8f0; color: #1e3c72; padding: 8px 12px; border-radius: 20px; font-size: 12px; cursor: pointer; transition: all 0.3s; font-weight: 500; }
+        .ai-chatbot-quick-btn:hover { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border-color: #1e3c72; transform: translateY(-2px); }
+        .ai-chatbot-typing { padding: 10px 15px; }
+        .ai-chatbot-typing-dots { display: flex; gap: 5px; padding: 10px; }
+        .ai-chatbot-typing-dots span { width: 8px; height: 8px; background: #1e3c72; border-radius: 50%; animation: typing-bounce 1.4s ease-in-out infinite; }
+        .ai-chatbot-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .ai-chatbot-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-10px); } }
+        .ai-chatbot-input-area { padding: 15px; background: white; border-top: 1px solid #e2e8f0; }
+        .ai-chatbot-input-wrapper { display: flex; align-items: center; gap: 10px; background: #f1f5f9; border-radius: 25px; padding: 5px 15px; border: 2px solid #e2e8f0; transition: all 0.3s; }
+        .ai-chatbot-input-wrapper:focus-within { border-color: #1e3c72; box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1); }
+        .ai-chatbot-voice-btn { background: none; border: none; color: #64748b; cursor: pointer; padding: 8px; border-radius: 50%; transition: all 0.3s; }
+        .ai-chatbot-voice-btn:hover { background: rgba(30, 60, 114, 0.1); color: #1e3c72; }
+        .ai-chatbot-voice-btn.listening { background: #ef4444; color: white; animation: voice-pulse 1s ease-in-out infinite; }
+        @keyframes voice-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .ai-chatbot-input-wrapper input { flex: 1; border: none; background: none; padding: 10px 0; font-size: 14px; outline: none; color: #334155; }
+        .ai-chatbot-input-wrapper input::placeholder { color: #94a3b8; }
+        .ai-chatbot-send-btn { background: linear-gradient(135deg, #1e3c72, #2a5298); border: none; color: white; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .ai-chatbot-send-btn:hover { background: linear-gradient(135deg, #f59e0b, #f97316); transform: scale(1.1); }
+        .ai-chatbot-powered { text-align: center; margin-top: 10px; font-size: 11px; color: #94a3b8; }
+        @media (max-width: 480px) {
+            .ai-chatbot { bottom: 20px; right: 20px; }
+            .ai-chatbot-toggle { width: 55px; height: 55px; }
+            .ai-chatbot-window { width: calc(100vw - 40px); height: 450px; right: -10px; }
+            .whatsapp-btn span { display: none; }
+        }
+    </style>
+
+    <!-- AI Chatbot Script -->
+    <script src="ai-chatbot.js"></script>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('fade-out');
+            }, 1500);
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

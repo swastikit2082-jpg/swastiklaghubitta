@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="ne" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>प्रतिवेदनहरू | स्वस्तिक लघुवित्त</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <script src="common.js"></script>
+    
+    <style>
+        :root {
+            --primary-dark: #1e3c72;
+            --primary-blue: #2a5298;
+            --accent-green: #10b981;
+            --accent-teal: #14b8a6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 20px rgba(30, 60, 114, 0.3);
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: linear-gradient(135deg, #10b981, #14b8a6);
+            color: white !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1e3c72, #2a5298);
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Report Hero */
+        .report-hero {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #0d9488 100%);
+            min-height: 40vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .report-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .report-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .report-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Reports Section */
+        .reports-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #ecfdf5 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .reports-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        .reports-section > .container > p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .report-category {
+            margin-bottom: 4rem;
+        }
+
+        .report-category h3 {
+            font-size: 1.8rem;
+            color: #059669;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid #10b981;
+            display: inline-block;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .report-item {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .report-item:hover {
+            transform: translateY(-5px);
+            border-color: #10b981;
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .report-item-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .report-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .report-item:hover .report-icon {
+            transform: scale(1.1);
+        }
+
+        .report-icon.annual { background: linear-gradient(135deg, #10b981, #059669); }
+        .report-icon.financial { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .report-icon.quarterly { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .report-icon.governance { background: linear-gradient(135deg, #8b5cf6, #7c3aed); }
+        .report-icon.policy { background: linear-gradient(135deg, #ec4899, #db2777); }
+        .report-icon.other { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+
+        .report-item-content { flex: 1; }
+
+        .report-item h4 {
+            font-size: 1.2rem;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .report-item p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .report-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+            margin-top: auto;
+        }
+
+        .report-year {
+            background: #ecfdf5;
+            color: #059669;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .report-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .report-download:hover {
+            background: linear-gradient(135deg, #059669, #047857);
+            transform: translateX(5px);
+        }
+
+        /* Download All Section */
+        .download-all-section { 
+            text-align: center; 
+            padding: 3rem 0; 
+        }
+
+        .download-all-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+        }
+
+        .download-all-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 60, 114, 0.5);
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            width: 60px;
+            height: auto;
+        }
+
+        .footer-logo-text h3 {
+            color: #10b981;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .footer-logo-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        footer h4 {
+            color: #10b981;
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #10b981;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #10b981;
+            transform: translateY(-3px);
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .preloader-logo img {
+            width: 120px;
+            height: auto;
+            animation: pulse 2s infinite;
+        }
+
+        .preloader-text {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .preloader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .report-hero h1 { font-size: 2rem; }
+            .report-grid { grid-template-columns: 1fr; }
+            .report-item { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">
+            <img src="logo.png" alt="स्वस्तिक लघुवित्त">
+        </div>
+        <div class="preloader-text">स्वस्तिक लघुवित्त</div>
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="स्वस्तिक लघुवित्त वित्तीय संस्था लिमिटेड">
+                </a>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">🏠 मुख्य पृष्ठ</a></li>
+                    <li><a href="Service.html">💼 सेवाहरू</a></li>
+                    <li><a href="about.html">ℹ️ हाम्रो बारेमा</a></li>
+                    <li><a href="news.html">📰 समाचार</a></li>
+                    <li><a href="contact.html">📞 सम्पर्क</a></li>
+                    <li><a href="photos.html">📸 फोटोहरू</a></li>
+                    <li><a href="information.html">📋 जानकारी</a></li>
+                    <li><a href="notice.html">📋 सूचना</a></li>
+                </ul>
+               
+                <div class="auth-buttons">
+                    <a href="career.html" class="btn-career">💼 Career</a>
+                </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Report Hero -->
+    <section class="report-hero">
+        <div class="container">
+            <h1>📊 प्रतिवेदनहरू</h1>
+            <p>स्वस्तिक लघुवित्त वित्तीय संस्था लिमिटेडको वार्षिक र वित्तीय प्रतिवेदनहरू</p>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section class="reports-section">
+        <div class="container">
+            <h2>हाम्रा प्रतिवेदनहरू</h2>
+            <p>विभिन्न आर्थिक वर्षहरूका वार्षिक प्रतिवेदन, वित्तीय विवरण र अन्य दस्तावेज़हरू</p>
+
+            <!-- Annual Reports -->
+            <div class="report-category">
+                <h3>📊 वार्षिक प्रतिवेदन</h3>
+                <div class="report-grid">
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon annual">📊</div>
+                            <div class="report-item-content">
+                                <h4>वार्षिक प्रतिवेदन 2081/82</h4>
+                                <p>आर्थिक वर्ष 2081/82 को पूर्ण वार्षिक प्रतिवेदन। यसमा वित्तीय विवरण, लेखापरीक्षण प्रतिवेदन, र संचालक समितिको प्रतिवेदन समावेश छ।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2081/82</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon annual">📊</div>
+                            <div class="report-item-content">
+                                <h4>वार्षिक प्रतिवेदन 2080/81</h4>
+                                <p>आर्थिक वर्ष 2080/81 को पूर्ण वार्षिक प्रतिवेदन। संस्थाको प्रगति र उपलब्धिहरूको विस्तृत विवरण।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2080/81</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon annual">📊</div>
+                            <div class="report-item-content">
+                                <h4>वार्षिक प्रतिवेदन 2079/80</h4>
+                                <p>आर्थिक वर्ष 2079/80 को वार्षिक प्रतिवेदन। ग्राहक वृद्धि र वित्तीय प्रदर्शन।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2079/80</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Financial Reports -->
+            <div class="report-category">
+                <h3>💰 वित्तीय प्रतिवेदन</h3>
+                <div class="report-grid">
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon financial">💵</div>
+                            <div class="report-item-content">
+                                <h4>त्रैमासिक वित्तीय विवरण (चौथो त्रैमास)</h4>
+                                <p>आर्थिक वर्ष 2081/82 को चौथो त्रैमासिक वित्तीय विवरण।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082 चैत्र</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon financial">💵</div>
+                            <div class="report-item-content">
+                                <h4>त्रैमासिक वित्तीय विवरण (तेस्रो त्रैमास)</h4>
+                                <p>आर्थिक वर्ष 2081/82 को तेस्रो त्रैमासिक वित्तीय विवरण।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082 पुष</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon financial">💵</div>
+                            <div class="report-item-content">
+                                <h4>अंकित पुँजी र जारी पूँजी विवरण</h4>
+                                <p>कम्पनीको अंकित र जारी पूँजीको विस्तृत विवरण।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon financial">💵</div>
+                            <div class="report-item-content">
+                                <h4>शेयरधनी विवरण</h4>
+                                <p>संस्थाका शेयरधनीहरूको विस्तृत विवरण र शेयर प्रतिशत।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Governance -->
+            <div class="report-category">
+                <h3>🏛️ शासन प्रणाली</h3>
+                <div class="report-grid">
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon governance">📋</div>
+                            <div class="report-item-content">
+                                <h4>कम्पनीको प्रबन्ध पत्र</h4>
+                                <p>कम्पनीको प्रबन्ध पत्र (Memorandum of Association) र Articles of Association।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2075</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon governance">📋</div>
+                            <div class="report-item-content">
+                                <h4>शासकीय निर्देशिका</h4>
+                                <p>कम्पनी शासन र संचालक समितिको कार्य विधि।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon governance">📋</div>
+                            <div class="report-item-content">
+                                <h4>लेखापरीक्षण समिति</h4>
+                                <p>लेखापरीक्षण समितिको गठन र कार्य विधि।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Policies -->
+            <div class="report-category">
+                <h3>📜 नीति र नियम</h3>
+                <div class="report-grid">
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon policy">⚖️</div>
+                            <div class="report-item-content">
+                                <h4>ग्राहक सेवा नीति</h4>
+                                <p>ग्राहकहरूलाई प्रदान गरिने सेवाको नीति र मानकहरू।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon policy">⚖️</div>
+                            <div class="report-item-content">
+                                <h4>गोपनीयता नीति</h4>
+                                <p>ग्राहक डेटा र गोपनीयता सम्बन्धी नीति।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon policy">⚖️</div>
+                            <div class="report-item-content">
+                                <h4>शिकायत निवारण प्रक्रिया</h4>
+                                <p>ग्राहक शिकायत निवारणको प्रक्रिया र विधि।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon policy">⚖️</div>
+                            <div class="report-item-content">
+                                <h4>जोखिम व्यवस्थापन नीति</h4>
+                                <p>संस्थाको जोखिम व्यवस्थापन नीति र प्रक्रिया।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Documents -->
+            <div class="report-category">
+                <h3>📁 अन्य दस्तावेज़हरू</h3>
+                <div class="report-grid">
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon other">📄</div>
+                            <div class="report-item-content">
+                                <h4>वार्षिक साधारण सभा कार्यसूची</h4>
+                                <p>2082 को वार्षिक साधारण सभाको कार्यसूची र प्रस्तावहरू।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon other">📄</div>
+                            <div class="report-item-content">
+                                <h4>संचालक समिति निर्वाचन</h4>
+                                <p>संचालक समितिको निर्वाचन प्रक्रिया र परिणाम।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2082</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-item-header">
+                            <div class="report-icon other">📄</div>
+                            <div class="report-item-content">
+                                <h4>नेपाल राष्ट्र बैंक इजाजतपत्र</h4>
+                                <p>नेपाल राष्ट्र बैंकबाट प्राप्त इजाजतपत्र र दर्ता।</p>
+                            </div>
+                        </div>
+                        <div class="report-meta">
+                            <span class="report-year">2075</span>
+                            <a href="#" class="report-download">📥 डाउनलोड</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Download All -->
+            <div class="download-all-section">
+                <a href="#" class="download-all-btn">
+                    📥 सबै प्रतिवेदन डाउनलोड गर्नुहोस्
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="स्वस्तिक">
+                        <div class="footer-logo-text">
+                            <h3>स्वस्तिक लघुवित्त</h3>
+                            <p>वित्तीय संस्था लिमिटेड</p>
+                        </div>
+                    </div>
+                    <p>नेपाल राष्ट्र बैंक दर्ता नं: क/०३६/०२७<br>कम्पनी दर्ता नं: ६०६५६२७०६</p>
+                      <div class="social-links">
+                        <ul>
+                            <li><a href="https://www.facebook.com/share/18MC7VDGaR/" target="_blank">Facebook</a></li>
+                            <li><a href="https://www.tiktok.com/@swastiklaghubitta?is_from_webapp=1&sender_device=pc" target="_blank">Tiktok</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCdu6HT8zTUpHM8_EKTUJBww" target="_blank">Youtube</a></li>
+                        <!-- <a href="https://facebook.com/swastiklaghubitta" target="_blank">Facebook</a>
+                        <a href="https://www.tiktok.com/@swastiklaghubitta?is_from_webapp=1&sender_device=pc" target="_blank"><span>Tiktok</span></a>
+                        <a href="UCdu6HT8zTUpHM8_EKTUJBww" target="_blank"><span>Youtube</span></a> -->
+                    </div>
+                </div>
+              <div>
+                    <h4>महत्त्वपूर्ण लिङ्कहरू</h4>
+                    <ul>
+                        <li><a href="index.html">मुख्य पृष्ठ</a></li>
+                        <li><a href="Service.html">सेवाहरू</a></li>
+                        <li><a href="about.html">हाम्रो बारेमा</a></li>
+                        <li><a href="news.html">समाचार</a></li>
+                        <li><a href="contact.html">सम्पर्क</a></li>
+                        <li><a href="photos.html">फोटोहरू</a></li>
+                        <li><a href="information.html">जानकारी</a></li>
+                    </ul>
+                </div>
+                    <div>
+                    <h4> अन्य महत्त्वपूर्ण लिङ्कहरू</h4>
+                    <ul>
+                        <li><a href="https://www.nrb.org.np">नेपाल राष्ट्र बैंक</a></li>
+                        <li><a href="https://gunaso.nrb.org.np">NRB उजुरी पोर्टल</a></li>
+                        <li><a href="notice.html">सूचना बोर्ड</a></li>
+                        <!-- <li><a href="about.html">हाम्रो बारेमा</a></li>
+                        <li><a href="news.html">समाचार</a></li>
+                        <li><a href="contact.html">सम्पर्क</a></li>
+                        <li><a href="photos.html">फोटोहरू</a></li>
+                        <li><a href="https://gunaso.nrb.org.np">जानकारी</a></li> -->
+                         
+                    </ul>
+                </div>
+                <div>
+                    <h4>कार्यालय खोज्नुहोस्</h4>
+                    <p>📍 लहान-८, सिराहा<br>मधेश प्रदेश, नेपाल</p>
+                    <p>📞 ०३३-५६३०६७</p>
+                    <p>📧 info@swastikmicrofinance.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: #FFD700;">&copy; २०७५ स्वस्तिक लघुवित्त वित्तीय संस्था लिमिटेड। सबै अधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('fade-out');
+            }, 1500);
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+     <!-- WhatsApp Chat Button -->
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/9815298144" target="_blank" class="whatsapp-btn">
+            <svg viewBox="0 0 24 24" width="40" height="40">
+                <path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span>हामीसँग च्याट गर्नुहोस्</span>
+        </a>
+    </div>
+
+    <!-- Advanced AI Chatbot -->
+    <div class="ai-chatbot" id="aiChatbot">
+        <div class="ai-chatbot-toggle" id="aiChatbotToggle" onclick="toggleAIChatbot()">
+            <div class="ai-chatbot-toggle-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </div>
+            <div class="ai-chatbot-toggle-badge" id="aiChatbotBadge">नयाँ</div>
+        </div>
+        
+        <div class="ai-chatbot-window" id="aiChatbotWindow">
+            <div class="ai-chatbot-header">
+                <div class="ai-chatbot-header-info">
+                    <div class="ai-chatbot-avatar">
+                        <div class="ai-chatbot-avatar-inner">🤖</div>
+                        <div class="ai-chatbot-status"></div>
+                    </div>
+                    <div class="ai-chatbot-header-text">
+                        <h4>स्वस्तिक AI सहायक</h4>
+                        <span>अनलाइन • तपाईंलाई मदद गर्न तयार</span>
+                    </div>
+                </div>
+                <div class="ai-chatbot-header-actions">
+                    <button class="ai-chatbot-btn" onclick="minimizeAIChatbot()" title="घटाउनुहोस्">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                    <button class="ai-chatbot-btn" onclick="closeAIChatbot()" title="बन्द गर्नुहोस्">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="ai-chatbot-messages" id="aiChatbotMessages">
+                <div class="ai-chatbot-message ai-chatbot-message-bot">
+                    <div class="ai-chatbot-message-avatar">🤖</div>
+                    <div class="ai-chatbot-message-content">
+                        <div class="ai-chatbot-message-bubble">
+                            <p>नमस्ते! 👋</p>
+                            <p>म <strong>स्वस्तिक लघुवित्तको AI सहायक</strong> हुँ।</p>
+                            <p>तपाईंलाई कुन सहायता चाहिएको छ? म तपाईंको प्रश्नहरूको उत्तर दिन तयार छु। 💼</p>
+                        </div>
+                        <span class="ai-chatbot-message-time">अहिले</span>
+                    </div>
+                </div>
+                
+                <div class="ai-chatbot-quick-actions">
+                    <p>छिटो कार्यहरू:</p>
+                    <div class="ai-chatbot-quick-buttons">
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('ऋण कसरी लिने?')">💰 ऋण कसरी लिने?</button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('ब्याजदर कति छ?')">📊 ब्याजदर कति छ?</button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('शाखा कार्यालय')">🏢 शाखा कार्यालय</button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('आवेदन प्रक्रिया')">📝 आवेदन प्रक्रिया</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-chatbot-typing" id="aiChatbotTyping" style="display: none;">
+                <div class="ai-chatbot-message ai-chatbot-message-bot">
+                    <div class="ai-chatbot-message-avatar">🤖</div>
+                    <div class="ai-chatbot-message-content">
+                        <div class="ai-chatbot-message-bubble">
+                            <div class="ai-chatbot-typing-dots"><span></span><span></span><span></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ai-chatbot-input-area">
+                <div class="ai-chatbot-input-wrapper">
+                    <button class="ai-chatbot-voice-btn" id="aiVoiceBtn" onclick="toggleVoiceInput()" title="आवाज़">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                    </button>
+                    <input type="text" id="aiChatbotInput" placeholder="तपाईंको प्रश्न लेख्नुहोस्..." onkeypress="handleAIChatKeyPress(event)">
+                    <button class="ai-chatbot-send-btn" onclick="sendAIChatMessage()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+                <div class="ai-chatbot-powered"><span>🔒 सुरक्षित च्याट</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Styles -->
+    <style>
+        .whatsapp-chat { position: fixed; bottom: 30px; left: 30px; z-index: 1000; }
+        .whatsapp-btn { display: flex; align-items: center; gap: 10px; background: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 600; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); transition: all 0.3s ease; }
+        .whatsapp-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
+        .ai-chatbot { position: fixed; bottom: 30px; right: 30px; z-index: 10000; font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif; }
+        .ai-chatbot-toggle { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 25px rgba(30, 60, 114, 0.5); transition: all 0.4s; position: relative; border: 3px solid #f59e0b; }
+        .ai-chatbot-toggle:hover { transform: scale(1.1); box-shadow: 0 12px 35px rgba(30, 60, 114, 0.7); }
+        .ai-chatbot-toggle-icon { color: white; animation: pulse-icon 2s ease-in-out infinite; }
+        @keyframes pulse-icon { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .ai-chatbot-toggle-badge { position: absolute; top: -5px; right: -5px; background: #f59e0b; color: #0a1628; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 10px; animation: badge-pulse 1.5s ease-in-out infinite; }
+        @keyframes badge-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        .ai-chatbot-window { position: absolute; bottom: 80px; right: 0; width: 380px; height: 520px; background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); display: none; flex-direction: column; overflow: hidden; border: 2px solid rgba(245, 158, 11, 0.3); animation: window-appear 0.4s; }
+        .ai-chatbot-window.show { display: flex; }
+        @keyframes window-appear { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .ai-chatbot-header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .ai-chatbot-header-info { display: flex; align-items: center; gap: 12px; }
+        .ai-chatbot-avatar { position: relative; width: 45px; height: 45px; }
+        .ai-chatbot-avatar-inner { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #f97316); display: flex; align-items: center; justify-content: center; font-size: 24px; border: 2px solid white; }
+        .ai-chatbot-status { position: absolute; bottom: 0; right: 0; width: 12px; height: 12px; background: #22c55e; border-radius: 50%; border: 2px solid #1e3c72; animation: status-pulse 2s ease-in-out infinite; }
+        @keyframes status-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .ai-chatbot-header-text h4 { color: white; font-size: 16px; font-weight: 700; margin: 0; }
+        .ai-chatbot-header-text span { color: rgba(255, 255, 255, 0.8); font-size: 12px; }
+        .ai-chatbot-header-actions { display: flex; gap: 8px; }
+        .ai-chatbot-btn { width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .ai-chatbot-btn:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.1); }
+        .ai-chatbot-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; }
+        .ai-chatbot-message { display: flex; gap: 10px; align-items: flex-start; }
+        .ai-chatbot-message-user { flex-direction: row-reverse; }
+        .ai-chatbot-message-avatar { width: 35px; height: 35px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #f97316); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+        .ai-chatbot-message-content { max-width: 75%; }
+        .ai-chatbot-message-user .ai-chatbot-message-content { text-align: right; }
+        .ai-chatbot-message-bubble { background: #f1f5f9; padding: 12px 16px; border-radius: 18px; border-bottom-left-radius: 4px; font-size: 14px; line-height: 1.6; color: #334155; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+        .ai-chatbot-message-user .ai-chatbot-message-bubble { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border-bottom-left-radius: 18px; border-bottom-right-radius: 4px; }
+        .ai-chatbot-message-bubble p { margin: 0; color: inherit; }
+        .ai-chatbot-message-bubble p + p { margin-top: 8px; }
+        .ai-chatbot-message-time { font-size: 11px; color: #94a3b8; margin-top: 5px; display: block; }
+        .ai-chatbot-quick-actions { background: rgba(245, 158, 11, 0.08); padding: 12px; border-radius: 12px; margin-top: 5px; }
+        .ai-chatbot-quick-actions p { font-size: 12px; color: #64748b; margin: 0 0 10px 0; font-weight: 600; }
+        .ai-chatbot-quick-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+        .ai-chatbot-quick-btn { background: white; border: 1px solid #e2e8f0; color: #1e3c72; padding: 8px 12px; border-radius: 20px; font-size: 12px; cursor: pointer; transition: all 0.3s; font-weight: 500; }
+        .ai-chatbot-quick-btn:hover { background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border-color: #1e3c72; transform: translateY(-2px); }
+        .ai-chatbot-typing { padding: 10px 15px; }
+        .ai-chatbot-typing-dots { display: flex; gap: 5px; padding: 10px; }
+        .ai-chatbot-typing-dots span { width: 8px; height: 8px; background: #1e3c72; border-radius: 50%; animation: typing-bounce 1.4s ease-in-out infinite; }
+        .ai-chatbot-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .ai-chatbot-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing-bounce { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-10px); } }
+        .ai-chatbot-input-area { padding: 15px; background: white; border-top: 1px solid #e2e8f0; }
+        .ai-chatbot-input-wrapper { display: flex; align-items: center; gap: 10px; background: #f1f5f9; border-radius: 25px; padding: 5px 15px; border: 2px solid #e2e8f0; transition: all 0.3s; }
+        .ai-chatbot-input-wrapper:focus-within { border-color: #1e3c72; box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1); }
+        .ai-chatbot-voice-btn { background: none; border: none; color: #64748b; cursor: pointer; padding: 8px; border-radius: 50%; transition: all 0.3s; }
+        .ai-chatbot-voice-btn:hover { background: rgba(30, 60, 114, 0.1); color: #1e3c72; }
+        .ai-chatbot-voice-btn.listening { background: #ef4444; color: white; animation: voice-pulse 1s ease-in-out infinite; }
+        @keyframes voice-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .ai-chatbot-input-wrapper input { flex: 1; border: none; background: none; padding: 10px 0; font-size: 14px; outline: none; color: #334155; }
+        .ai-chatbot-input-wrapper input::placeholder { color: #94a3b8; }
+        .ai-chatbot-send-btn { background: linear-gradient(135deg, #1e3c72, #2a5298); border: none; color: white; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .ai-chatbot-send-btn:hover { background: linear-gradient(135deg, #f59e0b, #f97316); transform: scale(1.1); }
+        .ai-chatbot-powered { text-align: center; margin-top: 10px; font-size: 11px; color: #94a3b8; }
+        @media (max-width: 480px) {
+            .ai-chatbot { bottom: 20px; right: 20px; }
+            .ai-chatbot-toggle { width: 55px; height: 55px; }
+            .ai-chatbot-window { width: calc(100vw - 40px); height: 450px; right: -10px; }
+            .whatsapp-btn span { display: none; }
+        }
+    </style>
+
+    <!-- AI Chatbot Script -->
+    <script src="ai-chatbot.js"></script>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('fade-out');
+            }, 1500);
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+                    
