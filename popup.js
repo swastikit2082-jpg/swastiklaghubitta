@@ -32,7 +32,7 @@ function closeNoticePopup() {
     if (popup) popup.style.display = 'none';
 
     // Directly open full image
-    openFullImage('img/notice1.jpg');
+    openFullImage('notice1.jpg');
 }
 
 // PDF FUNCTION - Opens PDF in modal (like image)
@@ -40,7 +40,7 @@ function openPdfInModal() {
     const modal = document.getElementById('pdfModal');
     const pdfFrame = document.getElementById('pdfFrame');
     if (modal && pdfFrame) {
-        pdfFrame.src = 'img/notice2.pdf';
+        pdfFrame.src = 'notice2.pdf';
         modal.classList.add('show');
     }
 }
@@ -91,3 +91,4 @@ document.addEventListener('keydown', function(e) {
 window.addEventListener('load', function() {
     setTimeout(showNoticePopup, 500);
 });
+
