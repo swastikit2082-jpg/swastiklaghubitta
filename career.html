@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ne" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>करियर | स्वस्तिक लघुवित्त बित्तीय संस्था लिमिटेड</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        .career-hero {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #0d1b2a 100%);
+            padding: 150px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .career-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 193, 7, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 152, 0, 0.1) 0%, transparent 50%);
+        }
+        
+        .career-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            position: relative;
+            color: #ffffff;
+            border-bottom: 4px solid #ffc107;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .career-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            color: #e0e0e0;
+        }
+        
+        .benefits {
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .benefits::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(255, 193, 7, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(13, 27, 42, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ffc107, #ff9800);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(13, 27, 42, 0.2);
+            border-color: #ffc107;
+        }
+        
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .benefit-card h3 {
+            color: #0d1b2a;
+            margin-bottom: 0.5rem;
+        }
+        
+        .vacancies {
+            background: linear-gradient(180deg, #0d1b2a 0%, #1b263b 100%);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+        }
+        
+        .vacancies::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 90%, rgba(255, 193, 7, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 10%, rgba(255, 152, 0, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        
+        .vacancy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .vacancy-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #ffc107;
+            transition: all 0.4s ease;
+        }
+        
+        .vacancy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 193, 7, 0.2);
+            background: rgba(255, 193, 7, 0.1);
+        }
+        
+        .vacancy-card h3 {
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+        }
+        
+        .vacancy-card p {
+            color: #cbd5e1;
+        }
+        
+        .vacancy-type {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: #0d1b2a;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .vacancy-details {
+            margin: 1rem 0;
+        }
+        
+        .vacancy-details p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+        
+        .apply-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: #0d1b2a;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+        }
+        
+        .apply-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.5);
+            background: linear-gradient(135deg, #ff9800, #ffc107);
+        }
+        
+        .application-section {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 100%);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .application-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(255, 193, 7, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .application-form {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .application-form h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .application-form h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffc107, #ff9800);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .application-form .form-group label {
+            color: #ffc107;
+            font-weight: 600;
+        }
+        
+        .application-form .form-group input,
+        .application-form .form-group select,
+        .application-form .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: rgb(118, 119, 128);
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .application-form .form-group input::placeholder,
+        .application-form .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .application-form .form-group input:focus,
+        .application-form .form-group select:focus,
+        .application-form .form-group textarea:focus {
+            outline: none;
+            border-color: #ffc107;
+            box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .application-form .submit-btn {
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: #0d1b2a;
+            font-weight: 700;
+            width: 100%;
+            padding: 16px 35px;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(255, 193, 7, 0.4);
+            border: 2px solid #ffc107;
+        }
+        
+        .application-form .submit-btn:hover {
+            background: linear-gradient(135deg, #ff9800, #ffc107);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(255, 193, 7, 0.6);
+        }
+        
+        .file-input-wrapper {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .file-input-wrapper input[type="file"] {
+            display: none;
+        }
+        
+        .file-input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px dashed rgba(255, 193, 7, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .file-input-label:hover {
+            border-color: #ffc107;
+            background: rgba(255, 193, 7, 0.1);
+        }
+        
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            color: #0d1b2a;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .career-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .career-hero p {
+                font-size: 1rem;
+            }
+            
+            .vacancy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+     <!-- Left Sidebar - Live Date & Time -->
+    <div class="right-sidebar">
+        <div class="sidebar-card datetime-card">
+            <h3>🕐 वर्तमान समय</h3>
+            <div id="datetime-display"></div>
+        </div>
+        
+        <!-- Quick Info Card -->
+        <!-- <div class="sidebar-card">
+            <h3>📌 आजको दिन</h3>
+            <div class="sidebar-info">
+                <span class="sidebar-icon">🏆</span>
+                <div class="info-text">
+                    <h4>स्वागत छ</h4>
+                    <p>स्वस्तिक लघुवित्त</p>
+                </div>
+            </div>
+        </div> -->
+        
+        <!-- Quick Links Card -->
+        <div class="sidebar-card">
+            <h3>⚡ छिटो लिंकहरू</h3>
+            <div class="sidebar-info">
+                <span class="sidebar-icon">💰</span>
+                <div class="info-text">
+                    <h4>ऋण आवेदन</h4>
+                    <p><a href="#loan-application" style="color: #f59e0b;">अभी आवेदन गर्नुहोस्</a></p>
+                </div>
+            </div>
+            <div class="sidebar-info">
+                <span class="sidebar-icon">📊</span>
+                <div class="info-text">
+                    <h4>EMI क्यालकुलेटर</h4>
+                    <p><a href="index.html#calculator" style="color: #f59e0b;">हिसाब गर्नुहोस्</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="स्वस्तिक लघुवित्त बित्तीय संस्था लिमिटेड">
+                </a>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">🏠 मुख्य पृष्ठ</a></li>
+                    <li><a href="Service.html">💼 सेवाहरू</a></li>
+                    <li><a href="about.html">ℹ️ हाम्रो बारेमा</a></li>
+                    <li><a href="news.html">📰 समाचार</a></li>
+                    <li><a href="contact.php">📞 सम्पर्क</a></li>
+                    <li><a href="photos.html">📸 फोटोहरू</a></li>
+                </ul>
+               
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn-login">🔑Login</a>
+                    <a href="career.html" class="btn-career">💼 Career</a>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Career Hero -->
+    <section class="career-hero">
+        <div class="container">
+            <h1 class="fade-in">हाम्रो टिममा सामेल हुनुहोस्</h1>
+            <p class="fade-in">स्वस्तिक लघुवित्तमा आफ्नो करियर बनाउनुहोस्। हामी तपाईंको व्यावसायिक विकास र भविष्यलाई महत्व दिन्छौं।</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #0d1b2a; position: relative; display: inline-block; left: 50%; transform: translateX(-50%);">किन हामीसँग काम गर्नुहुन्छ?</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #5a6c7d; margin-bottom: 3rem;">हाम्रो संगठनमा काम गर्ने फाइदाहरू</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">💼</div>
+                    <h3>व्यावसायिक विकास</h3>
+                    <p>नियमित तालिम र क्षमता विकास कार्यक्रमहरू</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🏥</div>
+                    <h3>स्वास्थ्य बीमा</h3>
+                    <p>तपाईं र तपाईंको परिवारको लागि व्यापक स्वास्थ्य बीमा</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🎉</div>
+                    <h3>उत्सव बिदा</h3>
+                    <p>वर्षिक उत्सव बिदा र बोनस सुविधा</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">⚖️</div>
+                    <h3>कानूनी सुविधा</h3>
+                    <p>सामाजिक सुरक्षा र अन्य कानूनी सुविधा</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>मैत्री वातावरण</h3>
+                    <p>सहयोगी र मैत्री कार्य वातावरण</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-icon">📈</div>
+                    <h3>करियर अवसर</h3>
+                    <p>उत्कृष्ट करियर प्रगति र अवसरहरू</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vacancies Section -->
+    <section class="vacancies">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #ffffff; position: relative; display: inline-block; left: 50%; transform: translateX(-50%);">हालका रिक्त पदहरू</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #a0aec0; margin-bottom: 3rem;">आफ्नो सीप र योग्यता अनुसार पद छान्नुहोस्</p>
+            
+            <div class="vacancy-grid">
+                <!-- Vacancy 1 -->
+                <div class="vacancy-card fade-in">
+                    <span class="vacancy-type">पूर्णकालिक</span>
+                    <h3>शाखा प्रबन्धक</h3>
+                    <p style="color: #666; font-size: 1rem;">लहान, सिराहा</p>
+                    
+                    <div class="vacancy-details">
+                        <p>📋 योग्यता: स्नातक (बिजनेस/म्यानेजमेन्ट)</p>
+                        <p>💰 तलब: रु. ५०,००० - ८०,०००</p>
+                        <p>⏰ अनुभव: न्यूनतम ३ वर्ष</p>
+                    </div>
+                    
+                    <button class="apply-btn" onclick="scrollToForm('branch-manager')">आवेदन गर्नुहोस्</button>
+                </div>
+                
+                <!-- Vacancy 2 -->
+                <div class="vacancy-card fade-in">
+                    <span class="vacancy-type">पूर्णकालिक</span>
+                    <h3>कर्जा अधिकृत</h3>
+                    <p style="color: #666; font-size: 1rem;">सप्तरी, सिरहा, धनुषा</p>
+                    
+                    <div class="vacancy-details">
+                        <p>📋 योग्यता: +2/स्नातक</p>
+                        <p>💰 तलब: रु. ३०,००० - ४५,०००</p>
+                        <p>⏰ अनुभव: १-२ वर्ष</p>
+                    </div>
+                    
+                    <button class="apply-btn" onclick="scrollToForm('loan-officer')">आवेदन गर्नुहोस्</button>
+                </div>
+                
+                <!-- Vacancy 3 -->
+                <div class="vacancy-card fade-in">
+                    <span class="vacancy-type">पूर्णकालिक</span>
+                    <h3>ग्राहक सेवा अधिकृत</h3>
+                    <p style="color: #666; font-size: 1rem;">सबै शाखा कार्यालय</p>
+                    
+                    <div class="vacancy-details">
+                        <p>📋 योग्यता: +2 पास</p>
+                        <p>💰 तलब: रु. २५,००० - ३५,०००</p>
+                        <p>⏰ अनुभव: अनुभव आवश्यक छैन</p>
+                    </div>
+                    
+                    <button class="apply-btn" onclick="scrollToForm('customer-service')">आवेदन गर्नुहोस्</button>
+                </div>
+                
+                <!-- Vacancy 4 -->
+                <div class="vacancy-card fade-in">
+                    <span class="vacancy-type">आंशिक</span>
+                    <h3>IT सहायक</h3>
+                    <p style="color: #666; font-size: 1rem;">मुख्य कार्यालय, लहान</p>
+                    
+                    <div class="vacancy-details">
+                        <p>📋 योग्यता: +2/IT कोर्स</p>
+                        <p>💰 तलब: रु. २०,००० - २८,०००</p>
+                        <p>⏰ अनुभव: १ वर्ष</p>
+                    </div>
+                    
+                    <button class="apply-btn" onclick="scrollToForm('it-assistant')">आवेदन गर्नुहोस्</button>
+                </div>
+                
+                <!-- Vacancy 5 -->
+                <div class="vacancy-card fade-in">
+                    <span class="vacancy-type">पूर्णकालिक</span>
+                    <h3>लेखा अधिकृत</h3>
+                    <p style="color: #666; font-size: 1rem;">मुख्य कार्यालय, लहान</p>
+                    
+                    <div class="vacancy-details">
+                        <p>📋 योग्यता: बि.कम. / स्नातक (लेखा)</p>
+                        <p>💰 तलब: रु. ४०,००० - ५५,०००</p>
+                        <p>⏰ अनुभव: २-३ वर्ष</p>
+                    </div>
+                    
+                    <button class="apply-btn" onclick="scrollToForm('accountant')">आवेदन गर्नुहोस्</button>
+                </div>
+                
+                <!-- Vacancy 6 -->
+                <div class="vacancy-card fade-in">
+                    <span class="vacancy-type">पूर्णकालिक</span>
+                    <h3>सुरक्षा गार्ड</h3>
+                    <p style="color: #666; font-size: 1rem;">सबै शाखा कार्यालय</p>
+                    
+                    <div class="vacancy-details">
+                        <p>📋 योग्यता: SSC पास</p>
+                        <p>💰 तलब: रु. १८,००० - २२,०००</p>
+                        <p>⏰ अनुभव: अनुभव आवश्यक छैन</p>
+                    </div>
+                    
+                    <button class="apply-btn" onclick="scrollToForm('security')">आवेदन गर्नुहोस्</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section id="application-form" class="application-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: white;">आवेदन पेश गर्नुहोस्</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 3rem;">आफ्नो CV र व्यक्तिगत विवरण पठाउनुहोस्</p>
+            
+<form class="application-form" onsubmit="submitCareerApplication(event)" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>पूरा नाम *</label>
+                    <input type="text" id="career_name" required placeholder="तपाईंको पूरा नाम">
+                </div>
+                
+                <div class="form-group">
+                    <label>इमेल ठेगाना *</label>
+                    <input type="email" id="career_email" required placeholder="example@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label>मोबाइल नम्बर *</label>
+                    <input type="tel" id="career_phone" required placeholder="9800000000">
+                </div>
+                
+                <div class="form-group">
+                    <label>आवेदन गर्ने पद *</label>
+                    <select id="career_position" required>
+                        <option value="">छान्नुहोस्</option>
+                        <option value="branch-manager">शाखा प्रबन्धक</option>
+                        <option value="loan-officer">कर्जा अधिकृत</option>
+                        <option value="customer-service">ग्राहक सेवा अधिकृत</option>
+                        <option value="it-assistant">IT सहायक</option>
+                        <option value="accountant">लेखा अधिकृत</option>
+                        <option value="security">सुरक्षा गार्ड</option>
+                        <option value="other">अन्य</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>शैक्षिक योग्यता *</label>
+                    <input type="text" id="career_education" required placeholder="जस्तै: +2, स्नातक,-master's">
+                </div>
+                
+                <div class="form-group">
+                    <label>अनुभव (वर्षमा)</label>
+                    <input type="text" id="career_experience" placeholder="जस्तै: 3 वर्ष">
+                </div>
+                
+                <div class="form-group">
+                    <label>मेसेज</label>
+                    <textarea id="career_message" rows="4" placeholder="तपाईंको बारेमा केही लेख्नुहोस्..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>CV/Resume अपलोड गर्नुहोस् *</label>
+                    <div class="file-input-wrapper">
+                        <label for="career_cv" class="file-input-label">
+                            <span>📁 फाइल चयन गर्नुहोस् (PDF/DOC/DOCX)</span>
+                        </label>
+                        <input type="file" id="career_cv" accept=".pdf,.doc,.docx" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn">आवेदन पेश गर्नुहोस्</button>
+            </form>
+            
+            <div class="success-message" id="careerSuccessMessage">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                <h3>धन्यवाद!</h3>
+                <p>तपाईंको आवेदन सफलतापूर्वक पेश भयो।</p>
+                <p>हाम्रो टिमले ७ दिन भित्रमा तपाईंसँग सम्पर्क गर्नेछ।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="स्वस्तिक">
+                        <div class="footer-logo-text">
+                            <h3>स्वस्तिक लघुवित्त</h3>
+                            <p>बित्तीय संस्था लिमिटेड</p>
+                        </div>
+                    </div>
+                    <p>नेपाल राष्ट्र बैंक दर्ता नं: क/०३७/०२७<br>कम्पनी दर्ता नं: ६०७५५२७०६</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/swastiklaghubitta" target="_blank"><span>📘</span></a>
+                        <a href="https://viber.com" target="_blank"><span>💜</span></a>
+                        <a href="https://t.me/swastiklaghubitta" target="_blank"><span>✈️</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>त्वरित लिङ्कहरू</h4>
+                    <ul>
+                        <li><a href="index.html">मुख्य पृष्ठ</a></li>
+                        <li><a href="Service.html">सेवाहरू</a></li>
+                        <li><a href="about.html">हाम्रो बारेमा</a></li>
+                        <li><a href="news.html">समाचार</a></li>
+                        <li><a href="contact.html">सम्पर्क</a></li>
+                        <li><a href="photos.html">फोटोहरू</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>कार्यालय खोज्नुहोस्</h4>
+                    <p>📍 लहान-८, सिराहा<br>मधेश प्रदेश, नेपाल</p>
+                    <p>📞 ०३३-५६३०६७</p>
+                    <p>📧 info@swastikmicrofinance.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: #FFD700;">&copy; २०७५ स्वस्तिक लघुवित्त बित्तीय संस्था लिमिटेड। सबै अधिकार सुरक्षित।</p>
+            </div>
+        </div>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Scroll to application form
+        function scrollToForm(position) {
+            document.getElementById('career_position').value = position;
+            document.getElementById('application-form').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Career application form submission
+        async function submitCareerApplication(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('career_name').value,
+                email: document.getElementById('career_email').value,
+                phone: document.getElementById('career_phone').value,
+                position: document.getElementById('career_position').value,
+                education: document.getElementById('career_education').value,
+                experience: document.getElementById('career_experience').value,
+                message: document.getElementById('career_message').value
+            };
+
+            try {
+                const response = await fetch('career.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                const result = await response.text();
+                
+                // Show success message
+                document.querySelector('.application-form').style.display = 'none';
+                document.getElementById('careerSuccessMessage').classList.add('show');
+                
+                // Scroll to success message
+                document.getElementById('careerSuccessMessage').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ त्रुटि भयो। कृपया पुनः प्रयास गर्नुहोस्।');
+            }
+        }
+
+        // File input display
+        document.getElementById('career_cv').addEventListener('change', function(e) {
+            const label = document.querySelector('.file-input-label span');
+            if (this.files && this.files[0]) {
+                label.textContent = '✓ ' + this.files[0].name;
+            } else {
+                label.textContent = '📁 फाइल चयन गर्नुहोस् (PDF/DOC/DOCX)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

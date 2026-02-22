@@ -1,0 +1,2633 @@
+<!DOCTYPE html>
+<html lang="ne" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्वस्तिक लघुवित्त बित्तीय संस्था लिमिटेड | Swastik Laghubitta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
+    <!-- Chart.js for Interactive Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Common JavaScript -->
+    <script src="common.js"></script>
+    <script src="popup.js"></script>
+    <script src="ai-chatbot.js"></script>
+</head>
+<body>
+
+     <!-- Left Sidebar - Live Date & Time -->
+    <div class="right-sidebar">
+        <div class="sidebar-card datetime-card">
+            <h3>🕐 वर्तमान समय</h3>
+            <div id="datetime-display"></div>
+        </div>
+        
+        <!-- Quick Info Card -->
+         <div class="left-sidebar">
+        <div class="sidebar-card">
+            <h3>📌 आजको दिन</h3>
+            <div class="sidebar-info">
+                <span class="sidebar-icon">🏆</span>
+                <div class="info-text">
+                    <h4>स्वागत छ</h4>
+                    <p>स्वस्तिक लघुवित्त</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Quick Links Card -->
+        <!-- <div class="sidebar-card">
+            <h3>⚡ छिटो लिंकहरू</h3>
+            <div class="sidebar-info">
+                <span class="sidebar-icon">💰</span>
+                <div class="info-text">
+                    <h4>ऋण आवेदन</h4>
+                    <p><a href="#loan-application" style="color: #f59e0b;">अभी आवेदन गर्नुहोस्</a></p>
+                </div>
+            </div>
+            <div class="sidebar-info">
+                <span class="sidebar-icon">📊</span>
+                <div class="info-text">
+                    <h4>EMI क्यालकुलेटर</h4>
+                    <p><a href="index.html#calculator" style="color: #f59e0b;">हिसाब गर्नुहोस्</a></p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">
+            <img src="logo.png" alt="स्वस्तिक लघुवित्त">
+        </div>
+        <div class="preloader-text">स्वस्तिक लघुवित्त</div>
+        <div class="preloader-spinner"></div>
+    </div>
+
+    <!-- Notice Popup -->
+    <div class="notice-popup-container" id="noticePopup" style="display: none;">
+        <div class="notice-popup-content">
+            <div class="notice-popup-header">
+                <h2>📢 सूचना / Notice</h2>
+                <button class="notice-popup-close" onclick="closeNoticePopup()">&times;</button>
+            </div>
+            <div class="notice-popup-body">
+                <p class="notice-date">मिति / Date: <span id="currentDate"></span></p>
+                <div class="notice-images">
+                    <img src="img/notice1.jpg" alt="Notice 1" onclick="openFullImage('img/notice1.jpg')">
+                    <!-- <img src="img/notice2.jpg" alt="Notice 2" onclick="openFullImage('img/notice2.jpg')"> -->
+                </div>
+                <!-- <div class="notice-pdf-section">
+                    <p>📄 पूर्ण विवरणको लागि PDF हेर्नुहोस् / For complete details view PDF:</p>
+                    <a href="img/notice2.pdf" class="notice-pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span>
+                        PDF Download / डाउनलोड गर्नुहोस्
+                    </a>
+                </div> -->
+            </div>
+            <!-- <div class="notice-popup-footer">
+                <label class="notice-dont-show">
+                    <input type="checkbox" id="dontShowAgain" onchange="saveDontShow()">
+                    फेरि नदेखाउ / Don't show again
+                </label>
+            </div> -->
+        </div>
+    </div>
+
+<!-- Full Image Modal -->
+    <div class="full-image-modal" id="fullImageModal">
+        <span class="full-image-close" onclick="closeFullImage()">&times;</span>
+        <img class="full-image-content" id="fullImage" src="" alt="Full Image">
+    </div>
+
+    <!-- PDF Modal -->
+    <div class="pdf-modal" id="pdfModal">
+        <span class="pdf-modal-close" onclick="closePdfModal()">&times;</span>
+        <iframe class="pdf-modal-content" id="pdfFrame" src="" frameborder="0"></iframe>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="स्वस्तिक लघुवित्त बित्तीय संस्था लिमिटेड">
+                </a>
+            </div>
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">🏠 मुख्य पृष्ठ</a></li>
+                    <li><a href="Service.html">💼 सेवाहरू</a></li>
+                    <li><a href="about.html">ℹ️ हाम्रो बारेमा</a></li>
+                    <li><a href="news.html">📰 समाचार</a></li>
+                    <li><a href="contact.html">📞 सम्पर्क</a></li>
+                    <li><a href="photos.html">📸 फोटोहरू</a></li>
+                </ul>
+               
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn-login">🔑 Login</a>
+                    <a href="career.html" class="btn-career">💼 Career</a>
+                </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <!-- Floating Shapes -->
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+        
+        <div class="container">
+            <div class="glass-dark" style="padding: 2.5rem; display: inline-block; max-width: 900px;">
+                <h1 class="fade-in gradient-text">स्वस्तिक लघुवित्त बित्तीय संस्था लिमिटेड</h1>
+                <p style="font-size: 1.4rem; margin-bottom: 1.5rem;">तपाईंको आर्थिक सपनाहरू साकार पार्न विश्वसनीय साझेदार</p>
+
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">स्वस्तिक लघुवित्त वित्तीय संस्था लि. लहान–८, सिराहामा केन्द्रीय कार्यालय राखी स्थापन भएको वित्तीय संस्था हो। मिति २०७५ चैत्र १२ गते देखि वित्तीय सेवा संचालन गरेको एउटा पब्लिक कम्पनी हो। यस वित्तीय संस्थाको अधिकृत पुँजी ५ करोड ७७ लाख ५० हजार, जारी पुँजी ३ करोड ४६ लाख ५० हजार रहेको छ।</p>
+                
+                <div class="hero-buttons">
+                    <a href="#contact" class="cta-btn">अब ऋण लिनुहोस्</a>
+                    <a href="about.html" colour="white" class="btn-link-outline">थप जान्नुहोस्</a>
+                </div>
+            </div>
+            
+            <!-- Hero Stats -->
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="15">0</div>
+                    <div class="hero-stat-label">शाखा कार्यालय</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="75000">0</div>
+                    <div class="hero-stat-label">सन्तुष्ट ग्राहक</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="15">0</div>
+                    <div class="hero-stat-label">अर्ब+ कुल लगानी</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="99">0</div>
+                    <div class="hero-stat-label">% पुनर्भरण दर</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="gradient-orb gradient-orb-1"></div>
+        <div class="gradient-orb gradient-orb-2"></div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-box fade-in">
+                    <div class="stat-icon">🏢</div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">शाखा कार्यालय</div>
+                </div>
+                <div class="stat-box fade-in">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" data-target="75000">0</div>
+                    <div class="stat-label">सन्तुष्ट ग्राहक</div>
+                </div>
+                <div class="stat-box fade-in">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">अर्ब+ कुल लगानी</div>
+                </div>
+                <div class="stat-box fade-in">
+                    <div class="stat-icon">📈</div>
+                    <div class="stat-number" data-target="99">0</div>
+                    <div class="stat-label">% पुनर्भरण दर</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="gradient-text">हाम्रा सेवा हरू</h2>
+            <p>व्यापारिक, कृषि र घरायसी आवश्यकताका लागि विशेष ऋण सुविधा</p>
+            <div class="service-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">💼</div>
+                    <h3>व्यापारिक ऋण</h3>
+                    <p>सानो तथा मझौला व्यापार विस्तारका लागि ५ लाख देखि ५० लाख सम्मको ऋण</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🌾</div>
+                    <h3>कृषि ऋण</h3>
+                    <p>खेतीपाती, पशुपालन र कृषि औजार खरिदका लागि विशेष सुविधा</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏠</div>
+                    <h3>घरायसी ऋण</h3>
+                    <p>घर निर्माण, मर्मत र अन्य घरायसी आवश्यकताका लागि सहज ऋण</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon">👨‍👩‍👧‍👦</div>
+                    <h3>महिला समूह ऋण</h3>
+                    <p>महिला उद्यमशीलताका लागि विशेष समूह ऋण कार्यक्रम</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <h2 class="gradient-text">हाम्रो लक्ष्य र दृष्टि</h2>
+            <p>समुदायको आर्थिक विकासमा समर्पित</p>
+            <div class="mv-grid">
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">🎯</div>
+                    <h3>हाम्रो लक्ष्य</h3>
+                    <p>गरिबी निवारण र आर्थिक समावेशीकरणमा योगदान पुर्याउनु हो। हामी साना व्यवसायी, किसान र महिला उद्यमशीलहरूलाई सहज ऋण सुविधा प्रदान गरी आत्मनिर्भर बनाउन प्रतिबद्ध छौं।</p>
+                </div>
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">🔭</div>
+                    <h3>हाम्रो दृष्टि</h3>
+                    <p>मधेश प्रदेशको अग्रणी लघुवित्त संस्था बन्नु हो। हाम्रो दृष्टि भनेको प्रत्येक ग्राहकलाई गुणस्तरीय वित्तीय सेवा प्रदान गर्दै उनीहरूको जीवनमा सकारात्मक परिवर्तन ल्याउनु हो।</p>
+                </div>
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">💎</div>
+                    <h3>हाम्रा मूल्यहरू</h3>
+                    <p>इमान्दारी, पारदर्शिता, ग्राहक केन्द्रित सेवा र सामाजिक उत्तरदायित्व हाम्रा मूल्य हुन्। हामी प्रत्येक ग्राहकलाई परिवारको रूपमा हेर्छौं र उनीहरूको सफलतामा आफ्नो सफलता देख्छौं।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="our-team">
+        <div class="container">
+            <h2 class="gradient-text-blue">हाम्रो टिम</h2>
+            <p>अनुभवी र दक्ष पेशेवरहरूको टिम</p>
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="team-avatar">सा</div>
+                    <h3>श्री सन्तोष कुमार साह</h>
+                    <p class="team-position">अध्यक्ष</p>
+                    <p class="team-desc">१५+ वर्षको बैंकिङ र वित्तीय अनुभव</p>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">प्र</div>
+                    <h3>श्री प्रमोद कुमार झा</h3>
+                    <p class="team-position">प्रमुख कार्यकारी अधिकृत (CEO)</p>
+                    <p class="team-desc">१०+ वर्षको नेतृत्व अनुभव</p>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">रा</div>
+                    <h3>श्री रञ्जन कुमार यादव</h3>
+                    <p class="team-position">कार्यकारी निर्देशक</p>
+                    <p class="team-desc">मधेश प्रदेशमा वित्तीय साक्षरता अभियान</p>
+                </div>
+                <div class="team-card fade-in">
+                    <div class="team-avatar">सु</div>
+                    <h3>श्री सुधांशु शेखर झा</h3>
+                    <p class="team-position">महाप्रबन्धक</p>
+                    <p class="team-desc">ग्राहक सेवा र सूक्ष्म वित्त विशेषज्ञ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2>किन रोज्नुहुन्छ हामीलाई?</h2>
+            <p>तपाईंको विश्वास र समर्थनका लागि धन्यवाद</p>
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div>⚡</div>
+                    <h3>द्रुत सेवा</h3>
+                    <p>२४ घण्टाभित्र ऋण स्वीकृति र भुक्तानी</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div>💰</div>
+                    <h3>कम ब्याजदर</h3>
+                    <p>बजारभन्दा कम ब्याजदरमा ऋण उपलब्ध</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div>🤝</div>
+                    <h3>सहज प्रक्रिया</h3>
+                    <p>न्यूनतम कागजात र छिटो प्रक्रिया</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div>🏦</div>
+                    <h3>विश्वसनीयता</h3>
+                    <p>नेपाल राष्ट्र बैंकबाट अनुमतिप्राप्त संस्था</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="gradient-text-blue">हाम्रा ग्राहकहरूको भनाइ</h2>
+            <p>तपाईंहरूको विश्वास र समर्थनका लागि धन्यवाद</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in">
+                    <p>"स्वस्तिक लघुवित्तबाट मैले व्यापार विस्तारका लागि ऋण लिएँ। सेवा उत्कृष्ट थियो र समयमै भुक्तानी भयो।"</p>
+                    <div class="client">
+                        <span class="client-avatar">रा</span>
+                        - राम बहादुर थापा, व्यवसायी
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"कृषि ऋणका लागि सहज प्रक्रिया र कम ब्याजदरले मलाई धेरै मद्दत गर्यो। सबैलाई सिफारिस गर्छु।"</p>
+                    <div class="client">
+                        <span class="client-avatar">सी</span>
+                        - सीता देवी शर्मा, कृषक
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"महिला समूह ऋण कार्यक्रमले मेरो व्यवसायलाई नयाँ उचाइमा पुर्यायो। धन्यवाद स्वस्तिक लघुवित्तलाई।"</p>
+                    <div class="client">
+                        <span class="client-avatar">गी</span>
+                        - गीता राई, उद्यमी
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charts Section - Interactive Data Visualization -->
+    <section id="charts" class="charts-section">
+        <div class="gradient-orb gradient-orb-1"></div>
+        <div class="gradient-orb gradient-orb-2"></div>
+        <div class="container">
+            <h2 class="gradient-text">हाम्रो प्रगति</h2>
+            <p>इन्टरैक्टिभ चार्टहरू मार्फत हाम्रो वित्तीय प्रदर्शन हेर्नुहोस्</p>
+            
+            <!-- Interactive Charts Navigation -->
+            <div class="charts-nav">
+                <button class="chart-nav-btn active" data-chart="all">सबै चार्टहरू</button>
+                <button class="chart-nav-btn" data-chart="distribution">ऋण वितरण</button>
+                <button class="chart-nav-btn" data-chart="growth">वृद्धि</button>
+                <button class="chart-nav-btn" data-chart="branch">शाखा</button>
+                <button class="chart-nav-btn" data-chart="satisfaction">सन्तुष्टि</button>
+            </div>
+            
+            <div class="charts-grid">
+                <!-- Loan Distribution Chart -->
+                <div class="chart-card fade-in chart-item" data-category="distribution">
+                    <div class="chart-header">
+                        <h3>ऋण वितरण (Loan Distribution)</h3>
+                        <button class="chart-expand-btn" onclick="expandChart('loanDistributionChart')">
+                            <span class="expand-icon">⛶</span>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="loanDistributionChart"></canvas>
+                    </div>
+                    <div class="chart-stats">
+                        <div class="chart-stat-item">
+                            <span class="chart-stat-value" data-count="35">0</span>
+                            <span class="chart-stat-label">% व्यापारिक</span>
+                        </div>
+                        <div class="chart-stat-item">
+                            <span class="chart-stat-value" data-count="25">0</span>
+                            <span class="chart-stat-label">% कृषि</span>
+                        </div>
+                        <div class="chart-stat-item">
+                            <span class="chart-stat-value" data-count="20">0</span>
+                            <span class="chart-stat-label">% घरायसी</span>
+                        </div>
+                        <div class="chart-stat-item">
+                            <span class="chart-stat-value" data-count="20">0</span>
+                            <span class="chart-stat-label">% महिला</span>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="chart-legend-item">
+                            <span class="chart-legend-color" style="background: #f59e0b;"></span>
+                            व्यापारिक ऋण
+                        </div>
+                        <div class="chart-legend-item">
+                            <span class="chart-legend-color" style="background: #3b82f6;"></span>
+                            कृषि ऋण
+                        </div>
+                        <div class="chart-legend-item">
+                            <span class="chart-legend-color" style="background: #10b981;"></span>
+                            घरायसी ऋण
+                        </div>
+                        <div class="chart-legend-item">
+                            <span class="chart-legend-color" style="background: #8b5cf6;"></span>
+                            महिला समूह
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Year over Year Growth Chart -->
+                <div class="chart-card fade-in chart-item" data-category="growth">
+                    <div class="chart-header">
+                        <h3>वार्षिक वृद्धि (Year over Year Growth)</h3>
+                        <button class="chart-expand-btn" onclick="expandChart('growthChart')">
+                            <span class="expand-icon">⛶</span>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                    <div class="chart-stats">
+                        <div class="chart-stat-item highlight">
+                            <span class="chart-stat-value" data-count="320">0</span>
+                            <span class="chart-stat-label">करोड ऋण वितरण</span>
+                        </div>
+                        <div class="chart-stat-item highlight">
+                            <span class="chart-stat-value" data-count="75">0</span>
+                            <span class="chart-stat-label">हजार ग्राहक</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Branch Performance Chart -->
+                <div class="chart-card fade-in chart-item" data-category="branch">
+                    <div class="chart-header">
+                        <h3>शाखा कार्यसम्पादन (Branch Performance)</h3>
+                        <button class="chart-expand-btn" onclick="expandChart('branchChart')">
+                            <span class="expand-icon">⛶</span>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="branchChart"></canvas>
+                    </div>
+                    <div class="chart-stats">
+                        <div class="chart-stat-item">
+                            <span class="chart-stat-value" data-count="8500">0</span>
+                            <span class="chart-stat-label">लहान (लाख)</span>
+                        </div>
+                        <div class="chart-stat-item">
+                            <span class="chart-stat-value" data-count="6200">0</span>
+                            <span class="chart-stat-label">भक्तपुर (लाख)</span>
+                        </div>
+                        <div class="chart-stat-item">
+                            <span class="chart-stat-value" data-count="5800">0</span>
+                            <span class="chart-stat-label">ललितपुर (लाख)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Satisfaction Chart -->
+                <div class="chart-card fade-in chart-item" data-category="satisfaction">
+                    <div class="chart-header">
+                        <h3>ग्राहक सन्तुष्टि (Customer Satisfaction)</h3>
+                        <button class="chart-expand-btn" onclick="expandChart('satisfactionChart')">
+                            <span class="expand-icon">⛶</span>
+                        </button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="satisfactionChart"></canvas>
+                    </div>
+                    <div class="chart-stats">
+                        <div class="chart-stat-item highlight">
+                            <span class="chart-stat-value" data-count="95">0</span>
+                            <span class="chart-stat-label">% सन्तुष्ट</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Fullscreen Modal -->
+            <div class="chart-modal" id="chartModal">
+                <div class="chart-modal-content">
+                    <button class="chart-modal-close" onclick="closeChartModal()">&times;</button>
+                    <div class="chart-modal-container">
+                        <canvas id="modalChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <h2>ऋण क्यालकुलेटर</h2>
+            <p>आफ्नो ऋण रकम र ब्याजदर हिसाब गर्नुहोस्</p>
+            
+            <div class="calculator-wrapper">
+                <div class="calculator-card">
+                    <div class="calculator-inputs">
+                        <div class="calculator-input-group">
+                            <label>ऋण रकम (रु.)</label>
+                            <input type="number" id="loanAmount" value="500000" min="50000" max="5000000" oninput="calculateEMI()">
+                        </div>
+                        <div class="calculator-input-group">
+                            <label>ब्याजदर (% प्रति वर्ष)</label>
+                            <input type="number" id="interestRate" value="15" min="5" max="25" step="0.5" oninput="calculateEMI()">
+                        </div>
+                        <div class="calculator-input-group">
+                            <label>ऋण अवधि (महिना)</label>
+                            <input type="number" id="loanTenure" value="36" min="6" max="60" oninput="calculateEMI()">
+                        </div>
+                        <div class="calculator-input-group">
+                            <label>ऋण प्रकार</label>
+                            <select id="loanTypeCalc" onchange="calculateEMI()">
+                                <option value="business">व्यापारिक ऋण</option>
+                                <option value="agri">कृषि ऋण</option>
+                                <option value="home">घरायसी ऋण</option>
+                                <option value="women">महिला समूह ऋण</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calculator-slider">
+                        <label>
+                            <span>ऋण रकम</span>
+                            <span id="sliderAmountDisplay">₹5,00,000</span>
+                        </label>
+                        <input type="range" id="loanAmountSlider" min="50000" max="5000000" value="500000" step="50000" oninput="updateFromSlider()">
+                    </div>
+
+                    <div class="calculator-results">
+                        <div class="calculator-result">
+                            <div class="calculator-result-label">मासिक किस्ता (EMI)</div>
+                            <div class="calculator-result-value" id="monthlyEMI">₹0</div>
+                        </div>
+                        <div class="calculator-result">
+                            <div class="calculator-result-label">कुल ब्याज</div>
+                            <div class="calculator-result-value" id="totalInterest">₹0</div>
+                        </div>
+                        <div class="calculator-result">
+                            <div class="calculator-result-label">कुल भुक्तानी</div>
+                            <div class="calculator-result-value" id="totalPayment">₹0</div>
+                        </div>
+                    </div>
+
+                    <button class="calculator-btn" onclick="applyForLoan()">अब आवेदन गर्नुहोस्</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress/Achievements Section -->
+    <section id="progress" class="progress-section">
+        <div class="container">
+            <h2 class="gradient-text">हाम्रा उपलब्धिहरू</h2>
+            <p>गत वर्षको प्रगति र उपलब्धिहरू</p>
+            
+            <div class="progress-grid">
+                <div class="progress-card fade-in">
+                    <h3>वित्तीय लक्ष्य</h3>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">ऋण वितरण लक्ष्य</span>
+                            <span class="progress-value">92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%;" data-progress="92"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">नाफा वृद्धि</span>
+                            <span class="progress-value">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;" data-progress="85"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">नयाँ ग्राहक</span>
+                            <span class="progress-value">78%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 78%;" data-progress="78"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-card fade-in">
+                    <h3>ग्राहक सेवा</h3>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">ग्राहक सन्तुष्टि</span>
+                            <span class="progress-value">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;" data-progress="95"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">ऋण स्वीकृति दर</span>
+                            <span class="progress-value">88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%;" data-progress="88"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">समयमा भुक्तानी</span>
+                            <span class="progress-value">99%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 99%;" data-progress="99"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-card fade-in">
+                    <h3>सामाजिक प्रभाव</h3>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">महिला उद्यमी सहभागिता</span>
+                            <span class="progress-value">72%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%;" data-progress="72"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">ग्रामीण क्षेत्र कवरेज</span>
+                            <span class="progress-value">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;" data-progress="80"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">वित्तीय साक्षरता कार्यक्रम</span>
+                            <span class="progress-value">65%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%;" data-progress="65"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="gradient-text">प्रश्नहरू</h2>
+            <p class="faq-subtitle">धेरै सोधिने प्रश्नहरू</p>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>ऋण पाउनका लागि के के चाहिन्छ?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>ऋण पाउनका लागि नेपाली नागरिकता प्रमाणपत्र, स्थायी ठेगाना, आय प्रमाण र दुईवटा फोटो चाहिन्छ। अन्य कागजातहरू ऋण प्रकार अनुसार फरक हुन सक्छन्।</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>ऋण स्वीकृत हुन कति समय लाग्छ?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>सामान्यतः २४ घण्टाभित्र ऋण स्वीकृत हुन्छ। पूर्ण कागजातहरू प्रस्तुत गरेमा छिटो प्रक्रिया पूरा गर्न सकिन्छ।</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>ब्याजदर कति छ?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>ब्याजदर ऋण प्रकार र रकम अनुसार फरक हुन्छ। व्यापारिक ऋणको लागि प्रति वर्ष १२-१८% र कृषि ऋणको लागि ८-१२% सम्म रहेको छ।</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>ऋण तिर्ने अवधि कति हो?</span>
+                        <span class="icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>ऋण अवधि १ वर्षदेखि ५ वर्षसम्म हुन सक्छ। तपाईंको सहजताको लागि मासिक, त्रैमासिक वा वार्षिक किस्तामा तिर्न सक्नुहुन्छ।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news">
+        <div class="container">
+            <h2 class="gradient-text-blue">हालका समाचारहरू</h2>
+            <p>हाम्रा नवीनतम गतिविधिहरू र अपडेटहरू</p>
+            <div class="news-grid">
+                <div class="news-card fade-in">
+                    <span class="news-icon">🏆</span>
+                    <h3>वर्ष २०८२ को उत्कृष्ट लघुवित्त पुरस्कार</h3>
+                    <p>स्वस्तिक लघुवित्तले नेपाल लघुवित्त संघबाट उत्कृष्ट सेवा प्रदायकको पुरस्कार प्राप्त गरेको छ।</p>
+                    <small>📅 २०८२ माघ १५</small>
+                </div>
+                <div class="news-card fade-in">
+                    <span class="news-icon">🌱</span>
+                    <h3>नयाँ कृषि ऋण कार्यक्रम सुरु</h3>
+                    <p>किसानहरूका लागि विशेष मौसमी ऋण कार्यक्रम सुरु भएको छ। ब्याजदरमा २% छुट उपलब्ध।</p>
+                    <small>📅 २०८२ पौष २८</small>
+                </div>
+                <div class="news-card fade-in">
+                    <span class="news-icon">👥</span>
+                    <h3>महिला उद्यमशीलता कार्यशाला</h3>
+                    <p>लहानमा ५०० भन्दा बढी महिलाहरू सहभागी भएको कार्यशाला सफलतापूर्वक सम्पन्न भयो।</p>
+                    <small>📅 २०८२ पौष २०</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="gradient-orb gradient-orb-3"></div>
+        <div class="container">
+            <h2>ऋण आवेदन गर्नुहोस्</h2>
+            <div class="contact-grid">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>🏢 मुख्य कार्यालय</h3>
+                        <p>लहान नगरपालिका<br>लहान, सिराहा, मधेश प्रदेश, नेपाल</p>
+                        <p>📞 फोन: ०३३-५६३०६७<br>📧 ईमेल: info@swastikmicrofinance.com</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>🕒 कार्य समय</h3>
+                        <p>सोम-शुक्र: १०:०० AM - ५:०० PM<br>शनिबार: ११:०० AM - २:०० PM</p>
+                        <p>बिदा: आइतबार</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>📱 अन्य शाखाहरू</h3>
+                        <p>भक्तपुर | ललितपुर | काभ्रे<br>धुलिखेल | पनौती</p>
+                    </div>
+                </div>
+                <form class="contact-form glass" onsubmit="submitApplication(event)">
+                    <div class="form-group">
+                        <label>पूरा नाम *</label>
+                        <input type="text" id="name" placeholder="तपाईंको नाम लेख्नुहोस्" required>
+                    </div>
+                    <div class="form-group">
+                        <label>मोबाइल नम्बर *</label>
+                        <input type="tel" id="phone" placeholder="९८XXXXXXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ऋण प्रकार *</label>
+                        <select id="loan_type" required>
+                            <option value="">छान्नुहोस्</option>
+                            <option value="business">व्यापारिक ऋण</option>
+                            <option value="agri">कृषि ऋण</option>
+                            <option value="home">घरायसी ऋण</option>
+                            <option value="women">महिला समूह ऋण</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>ऋण रकम (रु.) *</label>
+                        <input type="number" id="amount" placeholder="50000" min="50000" max="5000000" required>
+                    </div>
+                    <button type="submit" class="submit-btn">आवेदन पेश गर्नुहोस्</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Chat Button -->
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/977985603067" target="_blank" class="whatsapp-btn">
+            <svg viewBox="0 0 24 24" width="40" height="40">
+                <path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span>हामीसँग च्याट गर्नुहोस्</span>
+        </a>
+    </div>
+
+    <!-- Advanced AI Chatbot -->
+    <div class="ai-chatbot" id="aiChatbot">
+        <!-- Chat Toggle Button -->
+        <div class="ai-chatbot-toggle" id="aiChatbotToggle" onclick="toggleAIChatbot()">
+            <div class="ai-chatbot-toggle-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </div>
+            <div class="ai-chatbot-toggle-badge" id="aiChatbotBadge">नयाँ</div>
+        </div>
+        
+        <!-- Chat Window -->
+        <div class="ai-chatbot-window" id="aiChatbotWindow">
+            <!-- Header -->
+            <div class="ai-chatbot-header">
+                <div class="ai-chatbot-header-info">
+                    <div class="ai-chatbot-avatar">
+                        <div class="ai-chatbot-avatar-inner">🤖</div>
+                        <div class="ai-chatbot-status"></div>
+                    </div>
+                    <div class="ai-chatbot-header-text">
+                        <h4>स्वस्तिक AI सहायक</h4>
+                        <span>अनलाइन • तपाईंलाई मदद गर्न तयार</span>
+                    </div>
+                </div>
+                <div class="ai-chatbot-header-actions">
+                    <button class="ai-chatbot-btn" onclick="minimizeAIChatbot()" title="घटाउनुहोस्">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                    <button class="ai-chatbot-btn" onclick="closeAIChatbot()" title="बन्द गर्नुहोस्">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Messages -->
+            <div class="ai-chatbot-messages" id="aiChatbotMessages">
+                <!-- Welcome Message -->
+                <div class="ai-chatbot-message ai-chatbot-message-bot">
+                    <div class="ai-chatbot-message-avatar">🤖</div>
+                    <div class="ai-chatbot-message-content">
+                        <div class="ai-chatbot-message-bubble">
+                            <p>नमस्ते! 👋</p>
+                            <p>म <strong>स्वस्तिक लघुवित्तको AI सहायक</strong> हुँ।</p>
+                            <p>तपाईंलाई कुन सहायता चाहिएको छ? म तपाईंको प्रश्नहरूको उत्तर दिन तयार छु। 💼</p>
+                        </div>
+                        <span class="ai-chatbot-message-time">अहिले</span>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="ai-chatbot-quick-actions">
+                    <p>छिटो कार्यहरू:</p>
+                    <div class="ai-chatbot-quick-buttons">
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('ऋण कसरी लिने?')">
+                            💰 ऋण कसरी लिने?
+                        </button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('ब्याजदर कति छ?')">
+                            📊 ब्याजदर कति छ?
+                        </button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('शाखा कार्यालय')">
+                            🏢 शाखा कार्यालय
+                        </button>
+                        <button class="ai-chatbot-quick-btn" onclick="quickAIReply('आवेदन प्रक्रिया')">
+                            📝 आवेदन प्रक्रिया
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Typing Indicator -->
+            <div class="ai-chatbot-typing" id="aiChatbotTyping" style="display: none;">
+                <div class="ai-chatbot-message ai-chatbot-message-bot">
+                    <div class="ai-chatbot-message-avatar">🤖</div>
+                    <div class="ai-chatbot-message-content">
+                        <div class="ai-chatbot-message-bubble">
+                            <div class="ai-chatbot-typing-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="ai-chatbot-input-area">
+                <div class="ai-chatbot-input-wrapper">
+                    <button class="ai-chatbot-voice-btn" id="aiVoiceBtn" onclick="toggleVoiceInput()" title="आवाज़">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
+                    </button>
+                    <input type="text" id="aiChatbotInput" placeholder="तपाईंको प्रश्न लेख्नुहोस्..." onkeypress="handleAIChatKeyPress(event)">
+                    <button class="ai-chatbot-send-btn" onclick="sendAIChatMessage()">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="ai-chatbot-powered">
+                    <span>🔒 सुरक्षित च्याट</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="स्वस्तिक">
+                        <div class="footer-logo-text">
+                            <h3>स्वस्तिक लघुवित्त</h3>
+                            <p>बित्तीय संस्था लिमिटेड</p>
+                        </div>
+                    </div>
+                    <p>नेपाल राष्ट्र बैंक दर्ता नं: क/०३६/०२७<br>कम्पनी दर्ता नं: ६०६५६२७०६</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/swastiklaghubitta" target="_blank"><span>📘</span></a>
+                        <a href="https://viber.com" target="_blank"><span>💜</span></a>
+                        <a href="https://t.me/swastiklaghubitta" target="_blank"><span>✈️</span></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>त्वरित लिङ्कहरू</h4>
+                    <ul>
+                        <li><a href="index.html">मुख्य पृष्ठ</a></li>
+                        <li><a href="Service.html">सेवाहरू</a></li>
+                        <li><a href="about.html">हाम्रो बारेमा</a></li>
+                        <li><a href="news.html">समाचार</a></li>
+                        <li><a href="contact.html">सम्पर्क</a></li>
+                        <li><a href="photos.html">फोटोहरू</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>कार्यालय खोज्नुहोस्</h4>
+                    <p>📍 लहान-८, सिराहा<br>मधेश प्रदेश, नेपाल</p>
+                    <p>📞 ०३३-५६३०६७</p>
+                    <p>📧 info@swastikmicrofinance.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p style="color: #FFD700;">&copy; २०७५ स्वस्तिक लघुवित्त बित्तीय संस्था लिमिटेड। सबै अधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* WhatsApp Chat Button Styles */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Chatbot Styles */
+        .chatbot {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            font-family: 'Noto Sans Devanagari', sans-serif;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 15px 15px 0 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+        }
+
+        .chatbot-toggle {
+            font-size: 20px;
+        }
+
+        .chatbot-body {
+            display: none;
+            background: white;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            width: 350px;
+            max-height: 450px;
+            overflow: hidden;
+        }
+
+        .chatbot-body.show {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            max-height: 300px;
+        }
+
+        .bot-message, .user-message {
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        .bot-message {
+            background: #f0f4f8;
+            color: #333;
+            border-bottom-left-radius: 2px;
+        }
+
+        .user-message {
+            background: #1e3c72;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 2px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #eee;
+            gap: 10px;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background: #1e3c72;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .chatbot-quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-quick-replies button {
+            background: #f0f4f8;
+            border: 1px solid #1e3c72;
+            color: #1e3c72;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .chatbot-quick-replies button:hover {
+            background: #1e3c72;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-btn span {
+                display: none;
+            }
+            
+            .chatbot-body {
+                width: 300px;
+                right: 0;
+            }
+        }
+
+        /* ========================================
+           ADVANCED AI CHATBOT STYLES
+           ======================================== */
+        .ai-chatbot {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 10000;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+        }
+
+        .ai-chatbot-toggle {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(30, 60, 114, 0.5);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 3px solid #f59e0b;
+        }
+
+        .ai-chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(30, 60, 114, 0.7);
+        }
+
+        .ai-chatbot-toggle-icon {
+            color: white;
+            animation: pulse-icon 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-icon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .ai-chatbot-toggle-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #f59e0b;
+            color: #0a1628;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 10px;
+            animation: badge-pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes badge-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .ai-chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            height: 520px;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            animation: window-appear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .ai-chatbot-window.show {
+            display: flex;
+        }
+
+        @keyframes window-appear {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .ai-chatbot-header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ai-chatbot-header-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ai-chatbot-avatar {
+            position: relative;
+            width: 45px;
+            height: 45px;
+        }
+
+        .ai-chatbot-avatar-inner {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            border: 2px solid white;
+        }
+
+        .ai-chatbot-status {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background: #22c55e;
+            border-radius: 50%;
+            border: 2px solid #1e3c72;
+            animation: status-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes status-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .ai-chatbot-header-text h4 {
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .ai-chatbot-header-text span {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 12px;
+        }
+
+        .ai-chatbot-header-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .ai-chatbot-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .ai-chatbot-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .ai-chatbot-message {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .ai-chatbot-message-user {
+            flex-direction: row-reverse;
+        }
+
+        .ai-chatbot-message-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .ai-chatbot-message-content {
+            max-width: 75%;
+        }
+
+        .ai-chatbot-message-user .ai-chatbot-message-content {
+            text-align: right;
+        }
+
+        .ai-chatbot-message-bubble {
+            background: #f1f5f9;
+            padding: 12px 16px;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #334155;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .ai-chatbot-message-user .ai-chatbot-message-bubble {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .ai-chatbot-message-bubble p {
+            margin: 0;
+            color: inherit;
+        }
+
+        .ai-chatbot-message-bubble p + p {
+            margin-top: 8px;
+        }
+
+        .ai-chatbot-message-time {
+            font-size: 11px;
+            color: #94a3b8;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .ai-chatbot-quick-actions {
+            background: rgba(245, 158, 11, 0.08);
+            padding: 12px;
+            border-radius: 12px;
+            margin-top: 5px;
+        }
+
+        .ai-chatbot-quick-actions p {
+            font-size: 12px;
+            color: #64748b;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .ai-chatbot-quick-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ai-chatbot-quick-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            color: #1e3c72;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .ai-chatbot-quick-btn:hover {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-color: #1e3c72;
+            transform: translateY(-2px);
+        }
+
+        .ai-chatbot-typing {
+            padding: 10px 15px;
+        }
+
+        .ai-chatbot-typing-dots {
+            display: flex;
+            gap: 5px;
+            padding: 10px;
+        }
+
+        .ai-chatbot-typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: #1e3c72;
+            border-radius: 50%;
+            animation: typing-bounce 1.4s ease-in-out infinite;
+        }
+
+        .ai-chatbot-typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .ai-chatbot-typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing-bounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-10px); }
+        }
+
+        .ai-chatbot-input-area {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .ai-chatbot-input-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f1f5f9;
+            border-radius: 25px;
+            padding: 5px 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-input-wrapper:focus-within {
+            border-color: #1e3c72;
+            box-shadow: 0 0 0 3px rgba(30, 60, 114, 0.1);
+        }
+
+        .ai-chatbot-voice-btn {
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-voice-btn:hover {
+            background: rgba(30, 60, 114, 0.1);
+            color: #1e3c72;
+        }
+
+        .ai-chatbot-voice-btn.listening {
+            background: #ef4444;
+            color: white;
+            animation: voice-pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes voice-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .ai-chatbot-input-wrapper input {
+            flex: 1;
+            border: none;
+            background: none;
+            padding: 10px 0;
+            font-size: 14px;
+            outline: none;
+            color: #334155;
+        }
+
+        .ai-chatbot-input-wrapper input::placeholder {
+            color: #94a3b8;
+        }
+
+        .ai-chatbot-send-btn {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: none;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .ai-chatbot-send-btn:hover {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            transform: scale(1.1);
+        }
+
+        .ai-chatbot-powered {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .ai-chatbot {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .ai-chatbot-toggle {
+                width: 55px;
+                height: 55px;
+            }
+
+            .ai-chatbot-window {
+                width: calc(100vw - 40px);
+                height: 450px;
+                right: -10px;
+            }
+        }
+    </style>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('fade-out');
+            }, 1500);
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animated Counter
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number, .hero-stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target.toLocaleString() + (target >= 1000 ? '+' : '');
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Start counter animation when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Form submission
+        async function submitApplication(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                loan_type: document.getElementById('loan_type').value,
+                amount: document.getElementById('amount').value
+            };
+
+            try {
+                const response = await fetch('loan.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(formData).toString()
+                });
+
+                const result = await response.text();
+                
+                alert('🎉 आवेदन सफलतापूर्वक पेश भयो!\n\nहाम्रो टिम २४ घण्टाभित्र तपाईंसँग सम्पर्क गर्नेछ।\n\nधन्यवाद!');
+                e.target.reset();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ त्रुटि भयो। कृपया पुनः प्रयास गर्नुहोस्।');
+            }
+        }
+
+        // Make chart cards visible immediately on page load (not just when scrolled into view)
+        document.querySelectorAll('.chart-card.fade-in').forEach(el => {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+            el.style.transform = 'translateY(0)';
+        });
+
+        // Fade in animation on scroll for other elements
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    
+                    // If it's a chart card, trigger chart animation
+                    if (entry.target.classList.contains('chart-card')) {
+                        const canvas = entry.target.querySelector('canvas');
+                        if (canvas && canvas.chart) {
+                            canvas.chart.update();
+                        }
+                    }
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            // Skip chart cards as they're handled separately
+            if (el.classList.contains('chart-card')) return;
+            
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Chatbot Functions
+        function toggleChatbot() {
+            const body = document.getElementById('chatbot-body');
+            const toggle = document.querySelector('.chatbot-toggle');
+            body.classList.toggle('show');
+            toggle.textContent = body.classList.contains('show') ? '×' : '−';
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        function quickReply(message) {
+            document.getElementById('chatbot-input').value = message;
+            sendChatMessage();
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatbot-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                const messagesDiv = document.getElementById('chatbot-messages');
+                messagesDiv.innerHTML += `<div class="user-message">${message}</div>`;
+                input.value = '';
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message);
+                    messagesDiv.innerHTML += `<div class="bot-message">${botResponse}</div>`;
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }, 500);
+            }
+        }
+
+        function getBotResponse(message) {
+            const lowerMessage = message.toLowerCase();
+            
+            if (lowerMessage.includes('ऋण') || lowerMessage.includes('loan')) {
+                return `ऋणका लागि तपाईंले निम्न कागजातहरू चाहिन्छ:<br>• नेपाली नागरिकता<br>• स्थायी ठेगाना<br>• आय प्रमाण<br>• दुईवटा फोटो<br><br><strong>फर्म भर्नुहोस्:</strong> <a href="index.html#contact" style="color:#1e3c72;">यहाँ क्लिक गर्नुहोस्</a>`;
+            }
+            else if (lowerMessage.includes('ब्याज') || lowerMessage.includes('interest')) {
+                return `हाम्रो ब्याजदरहरू:<br>• व्यापारिक ऋण: १२-१८%<br>• कृषि ऋण: ८-१२%<br>• घरायसी ऋण: १०-१५%<br>• महिला समूह ऋण: ८-१२%<br><br>थप जानकारी: 033-563067`;
+            }
+            else if (lowerMessage.includes('शाखा') || lowerMessage.includes('branch')) {
+                return `🌿 हाम्रा शाखा कार्यालयहरू:<br>• लहान (मुख्य कार्यालय)<br>• भक्तपुर<br>• ललितपुर<br>• काभ्रे<br>• धुलिखेल<br><br><strong>मुख्य कार्यालय:</strong> लहान-८, सिराहा`;
+            }
+            else if (lowerMessage.includes('सम्पर्क') || lowerMessage.includes('contact')) {
+                return `📞 सम्पर्क जानकारी:<br><strong>फोन:</strong> 033-563067<br><strong>इमेल:</strong> info@swastikmicrofinance.com<br><strong>ठेगाना:</strong> लहान-८, सिराहा`;
+            }
+            else if (lowerMessage.includes('नमस्ते') || lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                return `नमस्ते! 👋<br>स्वस्तिक लघुवित्तमा स्वागत छ!<br>म तपाईंको मदद गर्न तयार छु।`;
+            }
+            else if (lowerMessage.includes('धन्यवाद') || lowerMessage.includes('thanks')) {
+                return `🎉 धन्यवाद!<br>तपाईंको विश्वासका लागि धन्यवाद!`;
+            }
+            else {
+                return `मैले बुझिन। 😅<br>थप जानकारीका लागि <strong>033-563067</strong> मा सम्पर्क गर्नुहोस्।`;
+            }
+        }
+
+        // ========================================
+        // CHARTS INITIALIZATION - Interactive Charts
+        // ========================================
+        
+        // Initialize charts when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initCharts();
+            calculateEMI();
+            initProgressBars();
+        });
+
+        function initCharts() {
+            // Chart.js default configuration
+            Chart.defaults.font.family = "'Noto Sans Devanagari', 'Segoe UI', sans-serif";
+            Chart.defaults.color = '#374151';
+            
+            // Custom tooltip style
+            const tooltipStyle = {
+                backgroundColor: 'rgba(10, 22, 40, 0.95)',
+                titleFont: { size: 14, weight: 'bold' },
+                bodyFont: { size: 13 },
+                padding: 12,
+                cornerRadius: 8,
+                borderColor: '#f59e0b',
+                borderWidth: 1
+            };
+            
+            // Loan Distribution Doughnut Chart with enhanced styling
+            const loanDistCtx = document.getElementById('loanDistributionChart').getContext('2d');
+            new Chart(loanDistCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['व्यापारिक ऋण', 'कृषि ऋण', 'घरायसी ऋण', 'महिला समूह'],
+                    datasets: [{
+                        data: [35, 25, 20, 20],
+                        backgroundColor: [
+                            'linear-gradient(135deg, #f59e0b 0%, #f97316 100%)',
+                            'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                            'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                            'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)'
+                        ],
+                        borderColor: ['#f59e0b', '#3b82f6', '#10b981', '#8b5cf6'],
+                        borderWidth: 3,
+                        borderRadius: 8,
+                        hoverOffset: 15,
+                        hoverBorderWidth: 3,
+                        hoverBorderColor: '#f59e0b'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '55%',
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            ...tooltipStyle,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+
+            // Year over Year Growth Line Chart with enhanced styling
+            const growthCtx = document.getElementById('growthChart').getContext('2d');
+            new Chart(growthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2075', '2076', '2077', '2078', '2079', '2080'],
+                    datasets: [{
+                        label: 'ऋण वितरण (करोड)',
+                        data: [50, 80, 120, 180, 250, 320],
+                        borderColor: '#f59e0b',
+                        backgroundColor: (context) => {
+                            const ctx = context.chart.ctx;
+                            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                            gradient.addColorStop(0, 'rgba(245, 158, 11, 0.4)');
+                            gradient.addColorStop(1, 'rgba(245, 158, 11, 0.0)');
+                            return gradient;
+                        },
+                        borderWidth: 4,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#f59e0b',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 3,
+                        pointRadius: 6,
+                        pointHoverRadius: 10,
+                        pointHoverBackgroundColor: '#f59e0b',
+                        pointHoverBorderColor: '#0a1628',
+                        pointHoverBorderWidth: 3
+                    }, {
+                        label: 'ग्राहक संख्या (हजार)',
+                        data: [10, 18, 28, 42, 58, 75],
+                        borderColor: '#3b82f6',
+                        backgroundColor: (context) => {
+                            const ctx = context.chart.ctx;
+                            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                            gradient.addColorStop(0, 'rgba(59, 130, 246, 0.4)');
+                            gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
+                            return gradient;
+                        },
+                        borderWidth: 4,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#3b82f6',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 3,
+                        pointRadius: 6,
+                        pointHoverRadius: 10,
+                        pointHoverBackgroundColor: '#3b82f6',
+                        pointHoverBorderColor: '#0a1628',
+                        pointHoverBorderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                font: { size: 12, weight: '500' }
+                            }
+                        },
+                        tooltip: tooltipStyle
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                padding: 10,
+                                font: { size: 11 }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                padding: 10,
+                                font: { size: 11, weight: '500' }
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    animation: {
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+
+            // Branch Performance Bar Chart with enhanced styling
+            const branchCtx = document.getElementById('branchChart').getContext('2d');
+            new Chart(branchCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['लहान', 'भक्तपुर', 'ललितपुर', 'काभ्रे', 'धुलिखेल'],
+                    datasets: [{
+                        label: 'ऋण वितरण (लाख)',
+                        data: [8500, 6200, 5800, 4200, 3500],
+                        backgroundColor: (context) => {
+                            const ctx = context.chart.ctx;
+                            const chart = context.chart;
+                            const {ctx: c, chartArea} = chart;
+                            if (!chartArea) return '#f59e0b';
+                            
+                            const gradient = c.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+                            gradient.addColorStop(0, 'rgba(245, 158, 11, 0.3)');
+                            gradient.addColorStop(1, 'rgba(245, 158, 11, 1)');
+                            return gradient;
+                        },
+                        borderRadius: 12,
+                        borderSkipped: false,
+                        borderWidth: 0,
+                        barThickness: 40,
+                        maxBarThickness: 50
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            ...tooltipStyle,
+                            callbacks: {
+                                label: function(context) {
+                                    return 'ऋण वितरण: ₹' + context.parsed.y.toLocaleString() + ' लाख';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                padding: 10,
+                                font: { size: 11 },
+                                callback: function(value) {
+                                    return '₹' + value / 1000 + 'K';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                padding: 10,
+                                font: { size: 11, weight: '500' }
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 1200,
+                        easing: 'easeOutQuart',
+                        delay: (context) => context.dataIndex * 100
+                    }
+                }
+            });
+
+            // Customer Satisfaction Doughnut Chart with enhanced styling
+            const satisfactionCtx = document.getElementById('satisfactionChart').getContext('2d');
+            new Chart(satisfactionCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['अत्यन्त सन्तुष्ट', 'सन्तुष्ट', 'सामान्य', 'असन्तुष्ट'],
+                    datasets: [{
+                        data: [45, 35, 15, 5],
+                        backgroundColor: [
+                            '#10b981',
+                            '#3b82f6',
+                            '#f59e0b',
+                            '#ef4444'
+                        ],
+                        borderColor: '#fff',
+                        borderWidth: 3,
+                        borderRadius: 8,
+                        hoverOffset: 15,
+                        hoverBorderWidth: 3,
+                        hoverBorderColor: '#0a1628'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '55%',
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'bottom',
+                            labels: {
+                                padding: 15,
+                                usePointStyle: true,
+                                pointStyle: 'circle',
+                                font: { size: 11, weight: '500' }
+                            }
+                        },
+                        tooltip: {
+                            ...tooltipStyle,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            }
+                        }
+                    },
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 1500,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        }
+
+        // ========================================
+        // LOAN CALCULATOR - EMI Calculator
+        // ========================================
+        
+        function calculateEMI() {
+            const principal = parseFloat(document.getElementById('loanAmount').value) || 0;
+            const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const tenureMonths = parseInt(document.getElementById('loanTenure').value) || 0;
+            
+            // Update slider display
+            document.getElementById('sliderAmountDisplay').textContent = '₹' + principal.toLocaleString();
+            document.getElementById('loanAmountSlider').value = principal;
+            
+            if (principal > 0 && annualRate > 0 && tenureMonths > 0) {
+                const monthlyRate = annualRate / 12 / 100;
+                
+                // EMI Formula: P * r * (1+r)^n / ((1+r)^n - 1)
+                const emi = principal * monthlyRate * Math.pow(1 + monthlyRate, tenureMonths) / (Math.pow(1 + monthlyRate, tenureMonths) - 1);
+                
+                const totalPayment = emi * tenureMonths;
+                const totalInterest = totalPayment - principal;
+                
+                document.getElementById('monthlyEMI').textContent = '₹' + Math.round(emi).toLocaleString();
+                document.getElementById('totalInterest').textContent = '₹' + Math.round(totalInterest).toLocaleString();
+                document.getElementById('totalPayment').textContent = '₹' + Math.round(totalPayment).toLocaleString();
+            } else {
+                document.getElementById('monthlyEMI').textContent = '₹0';
+                document.getElementById('totalInterest').textContent = '₹0';
+                document.getElementById('totalPayment').textContent = '₹0';
+            }
+        }
+
+        function updateFromSlider() {
+            const sliderValue = document.getElementById('loanAmountSlider').value;
+            document.getElementById('loanAmount').value = sliderValue;
+            calculateEMI();
+        }
+
+        function applyForLoan() {
+            const amount = document.getElementById('loanAmount').value;
+            const rate = document.getElementById('interestRate').value;
+            const tenure = document.getElementById('loanTenure').value;
+            const type = document.getElementById('loanTypeCalc').value;
+            
+            // Scroll to contact form and fill the details
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+            
+            // Fill the contact form
+            document.getElementById('amount').value = amount;
+            document.getElementById('loan_type').value = type;
+            
+            alert('🎉 धन्यवाद!\n\nतपाईंले चयन गर्नुभएको:\nऋण रकम: ₹' + parseInt(amount).toLocaleString() + '\nब्याजदर: ' + rate + '%\nअवधि: ' + tenure + ' महिना\n\nकृपया तलको फर्ममा आफ्नो नाम र मोबाइल नम्बर भर्नुहोस्।');
+        }
+
+        // ========================================
+        // PROGRESS BARS ANIMATION
+        // ========================================
+        
+        function initProgressBars() {
+            const progressObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateProgressBars(entry.target);
+                        progressObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            const progressSection = document.querySelector('.progress-section');
+            if (progressSection) {
+                progressObserver.observe(progressSection);
+            }
+        }
+
+        function animateProgressBars(section) {
+            const progressFills = section.querySelectorAll('.progress-fill');
+            
+            progressFills.forEach(fill => {
+                const targetWidth = fill.style.width;
+                fill.style.width = '0';
+                
+                setTimeout(() => {
+                    fill.style.width = targetWidth;
+                }, 100);
+            });
+        }
+
+        // ========================================
+        // PARALLAX EFFECT FOR HERO
+        // ========================================
+        
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            
+            if (hero) {
+                const yPos = -(scrolled * 0.3);
+                hero.style.backgroundPositionY = yPos + 'px';
+            }
+        });
+
+        // ========================================
+        // SMOOTH SCROLL FOR NAVIGATION LINKS
+        // ========================================
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // ========================================
+        // ADDITIONAL ANIMATIONS ON SCROLL
+        // ========================================
+        
+        // Tilt effect for cards
+        document.querySelectorAll('.service-card, .team-card, .why-card, .news-card, .chart-card, .progress-card').forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // ========================================
+        // MOUSE CURSOR TRAIL EFFECT
+        // ========================================
+        
+        const cursorTrail = document.createElement('div');
+        cursorTrail.style.cssText = `
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s;
+            opacity: 0;
+        `;
+        document.body.appendChild(cursorTrail);
+
+        let isVisible = false;
+        
+        document.addEventListener('mousemove', function(e) {
+            cursorTrail.style.left = e.clientX + 'px';
+            cursorTrail.style.top = e.clientY + 'px';
+            
+            if (!isVisible) {
+                cursorTrail.style.opacity = '1';
+                isVisible = true;
+            }
+        });
+
+        document.addEventListener('mouseleave', function() {
+            cursorTrail.style.opacity = '0';
+            isVisible = false;
+        });
+
+        // ========================================
+        // SCROLL TO TOP BUTTON
+        // ========================================
+        
+        const scrollTopBtn = document.createElement('button');
+        scrollTopBtn.innerHTML = '↑';
+        scrollTopBtn.style.cssText = `
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: #0a1628;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        `;
+        document.body.appendChild(scrollTopBtn);
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.visibility = 'visible';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========================================
+        // INTERSECTION OBSERVER FOR CHARTS
+        // ========================================
+        
+        const chartsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Charts are already initialized, just ensure they're visible
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.chart-card').forEach(card => {
+            chartsObserver.observe(card);
+        });
+
+        // ========================================
+        // ADVANCED AI CHATBOT FUNCTIONS
+        // ========================================
+
+        // Chatbot state management
+        let aiChatbotState = {
+            isOpen: false,
+            isMinimized: false,
+            isListening: false,
+            messages: [],
+            recognition: null
+        };
+
+        // Initialize chatbot
+        document.addEventListener('DOMContentLoaded', function() {
+            initAIChatbot();
+        });
+
+        function initAIChatbot() {
+            // Load chat history from localStorage
+            loadChatHistory();
+
+            // Initialize speech recognition if available
+            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                aiChatbotState.recognition = new SpeechRecognition();
+                aiChatbotState.recognition.continuous = false;
+                aiChatbotState.recognition.interimResults = false;
+                aiChatbotState.recognition.lang = 'ne-NP'; // Nepali language
+
+                aiChatbotState.recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript;
+                    document.getElementById('aiChatbotInput').value = transcript;
+                    sendAIChatMessage();
+                };
+
+                aiChatbotState.recognition.onend = function() {
+                    toggleVoiceInput(false);
+                };
+            }
+        }
+
+        function toggleAIChatbot() {
+            const window = document.getElementById('aiChatbotWindow');
+            const toggle = document.getElementById('aiChatbotToggle');
+            const badge = document.getElementById('aiChatbotBadge');
+
+            aiChatbotState.isOpen = !aiChatbotState.isOpen;
+
+            if (aiChatbotState.isOpen) {
+                window.classList.add('show');
+                toggle.style.transform = 'scale(0.9)';
+                setTimeout(() => toggle.style.transform = 'scale(1)', 200);
+
+                // Hide badge after first open
+                if (badge) {
+                    badge.style.display = 'none';
+                }
+
+                // Focus input
+                setTimeout(() => {
+                    document.getElementById('aiChatbotInput').focus();
+                }, 300);
+            } else {
+                window.classList.remove('show');
+                closeAIChatbot();
+            }
+        }
+
+        function minimizeAIChatbot() {
+            const window = document.getElementById('aiChatbotWindow');
+            aiChatbotState.isMinimized = !aiChatbotState.isMinimized;
+
+            if (aiChatbotState.isMinimized) {
+                window.style.height = '60px';
+                window.style.overflow = 'hidden';
+            } else {
+                window.style.height = '520px';
+                window.style.overflow = 'visible';
+            }
+        }
+
+        function closeAIChatbot() {
+            const window = document.getElementById('aiChatbotWindow');
+            window.classList.remove('show');
+            aiChatbotState.isOpen = false;
+            aiChatbotState.isMinimized = false;
+            window.style.height = '520px';
+            window.style.overflow = 'visible';
+        }
+
+        function handleAIChatKeyPress(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendAIChatMessage();
+            }
+        }
+
+        function quickAIReply(message) {
+            document.getElementById('aiChatbotInput').value = message;
+            sendAIChatMessage();
+        }
+
+        function sendAIChatMessage() {
+            const input = document.getElementById('aiChatbotInput');
+            const message = input.value.trim();
+
+            if (!message) return;
+
+            // Add user message
+            addAIMessage(message, 'user');
+
+            // Clear input
+            input.value = '';
+
+            // Show typing indicator
+            showAITyping();
+
+            // Generate response after delay
+            setTimeout(() => {
+                hideAITyping();
+                const response = generateAIResponse(message);
+                addAIMessage(response, 'bot');
+                saveChatHistory();
+            }, 1000 + Math.random() * 2000); // Random delay for realism
+        }
+
+        function addAIMessage(content, type) {
+            const messagesDiv = document.getElementById('aiChatbotMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `ai-chatbot-message ai-chatbot-message-${type}`;
+
+            const avatar = type === 'bot' ? '🤖' : '👤';
+            const time = new Date().toLocaleTimeString('ne-NP', {
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            messageDiv.innerHTML = `
+                <div class="ai-chatbot-message-avatar">${avatar}</div>
+                <div class="ai-chatbot-message-content">
+                    <div class="ai-chatbot-message-bubble">
+                        ${content}
+                    </div>
+                    <span class="ai-chatbot-message-time">${time}</span>
+                </div>
+            `;
+
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+            // Store message
+            aiChatbotState.messages.push({ content, type, time });
+        }
+
+        function showAITyping() {
+            const typingDiv = document.getElementById('aiChatbotTyping');
+            typingDiv.style.display = 'block';
+            typingDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideAITyping() {
+            const typingDiv = document.getElementById('aiChatbotTyping');
+            typingDiv.style.display = 'none';
+        }
+
+        function generateAIResponse(message) {
+            const lowerMessage = message.toLowerCase();
+
+            // Greeting responses
+            if (lowerMessage.includes('नमस्ते') || lowerMessage.includes('नमस्कार') ||
+                lowerMessage.includes('hello') || lowerMessage.includes('hi')) {
+                return `नमस्ते! 👋<br><br>स्वस्तिक लघुवित्तमा स्वागत छ! म तपाईंको AI सहायक हुँ।<br><br>तपाईंलाई कस्तो सहायता चाहिएको छ?<br>• ऋणका बारेमा जानकारी<br>• ब्याजदरहरू<br>• आवेदन प्रक्रिया<br>• शाखा कार्यालयहरू<br><br>कृपया आफ्नो प्रश्न सोध्नुहोस्। 💼`;
+            }
+
+            // Loan related
+            if (lowerMessage.includes('ऋण') || lowerMessage.includes('loan')) {
+                if (lowerMessage.includes('कसरी') || lowerMessage.includes('how')) {
+                    return `ऋण लिनका लागि यहाँ के गर्नुपर्छ:<br><br>📋 <strong>आवश्यक कागजातहरू:</strong><br>• नेपाली नागरिकता प्रमाणपत्र<br>• स्थायी ठेगाना प्रमाण<br>• आय प्रमाण (नागरिकता अनुसार)<br>• दुईवटा हालसालैका फोटो<br><br>💰 <strong>ऋण प्रकारहरू:</strong><br>• व्यापारिक ऋण (५० लाख सम्म)<br>• कृषि ऋण (विशेष सुविधा)<br>• घरायसी ऋण (१० वर्ष सम्म)<br>• महिला समूह ऋण<br><br>📞 <strong>सम्पर्क गर्नुहोस्:</strong> 033-563067<br><br><a href="#contact" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'}); closeAIChatbot();">अब आवेदन गर्नुहोस् →</a>`;
+                }
+                return `हामीले विभिन्न प्रकारका ऋण सुविधाहरू प्रदान गर्दछौं:<br><br>💼 <strong>व्यापारिक ऋण:</strong> ५ लाख देखि ५० लाख सम्म<br>🌾 <strong>कृषि ऋण:</strong> मौसमी र दीर्घकालीन<br>🏠 <strong>घरायसी ऋण:</strong> निर्माण र मर्मतका लागि<br>👥 <strong>महिला समूह ऋण:</strong> समूह ग्यारेन्टीमा<br><br>विस्तृत जानकारीका लागि "ऋण कसरी लिने?" भन्नुहोस्।`;
+            }
+
+            // Interest rates
+            if (lowerMessage.includes('ब्याज') || lowerMessage.includes('interest') ||
+                lowerMessage.includes('दर')) {
+                return `हाम्रा प्रतिस्पर्धी ब्याजदरहरू:<br><br>📊 <strong>व्यापारिक ऋण:</strong> १२-१८% प्रति वर्ष<br>🌾 <strong>कृषि ऋण:</strong> ८-१२% प्रति वर्ष<br>🏠 <strong>घरायसी ऋण:</strong> १०-१५% प्रति वर्ष<br>👥 <strong>महिला समूह ऋण:</strong> ८-१२% प्रति वर्ष<br><br>⚡ <strong>विशेष सुविधाहरू:</strong><br>• छिटो स्वीकृति (२४ घण्टा)<br>• न्यूनतम कागजात<br>• सहज किस्ता<br>• समयमा भुक्तानीमा छुट<br><br>वास्तविक दरहरू ऋण रकम र अवधि अनुसार फरक पर्न सक्छ।`;
+            }
+
+            // Branches
+            if (lowerMessage.includes('शाखा') || lowerMessage.includes('branch') ||
+                lowerMessage.includes('कार्यालय')) {
+                return `हाम्रा शाखा कार्यालयहरू:<br><br>🏢 <strong>मुख्य कार्यालय:</strong><br>लहान-८, सिराहा, मधेश प्रदेश<br>फोन: 033-563067<br><br>🏪 <strong>अन्य शाखाहरू:</strong><br>• भक्तपुर, ललितपुर<br>• काभ्रे, धुलिखेल<br>• पनौती क्षेत्र<br><br>📍 सबै शाखाहरूमा:<br>• ऋण आवेदन<br>• कागजात जाँच<br>• भुक्तानी सुविधा<br>• ग्राहक सेवा<br><br>नजिकको शाखाका लागि सम्पर्क गर्नुहोस्।`;
+            }
+
+            // Contact
+            if (lowerMessage.includes('सम्पर्क') || lowerMessage.includes('contact') ||
+                lowerMessage.includes('फोन') || lowerMessage.includes('phone')) {
+                return `हामीसँग सम्पर्क गर्नुहोस्:<br><br>📞 <strong>फोन:</strong> 033-563067<br>📧 <strong>इमेल:</strong> info@swastikmicrofinance.com<br>📍 <strong>ठेगाना:</strong> लहान-८, सिराहा<br><br>🕒 <strong>कार्य समय:</strong><br>• सोम-शुक्र: १०:०० AM - ५:०० PM<br>• शनिबार: ११:०० AM - २:०० PM<br>• बिदा: आइतबार<br><br>💬 <strong>तत्काल सहायता:</strong><br>हाम्रो वेबसाइट च्याट वा WhatsApp मार्फत पनि सहायता पाउन सक्नुहुन्छ।`;
+            }
+
+            // Application process
+            if (lowerMessage.includes('आवेदन') || lowerMessage.includes('application') ||
+                lowerMessage.includes('प्रक्रिया') || lowerMessage.includes('process')) {
+                return `ऋण आवेदन प्रक्रिया:<br><br>📝 <strong>चरण १:</strong> आवश्यक कागजात तयार गर्नुहोस्<br>🏢 <strong>चरण २:</strong> नजिकको शाखा कार्यालयमा जानुहोस्<br>📋 <strong>चरण ३:</strong> आवेदन फारम भर्नुहोस्<br>🔍 <strong>चरण ४:</strong> कागजातहरूको जाँच<br>✅ <strong>चरण ५:</strong> स्वीकृति र भुक्तानी<br><br>⏱️ <strong>समय:</strong> सामान्यतया २४ घण्टा<br>📞 <strong>सहायता:</strong> 033-563067<br><br><a href="#contact" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'}); closeAIChatbot();">अब आवेदन गर्नुहोस् →</a>`;
+            }
+
+            // Calculator
+            if (lowerMessage.includes('क्यालकुलेटर') || lowerMessage.includes('calculator') ||
+                lowerMessage.includes('हिसाब') || lowerMessage.includes('calculate')) {
+                return `ऋण EMI क्यालकुलेटर प्रयोग गर्नुहोस्:<br><br>🧮 <strong>क्यालकुलेटरमा उपलब्ध:</strong><br>• मासिक किस्ता हिसाब<br>• कुल ब्याज रकम<br>• कुल भुक्तानी<br>• विभिन्न ऋण प्रकारहरू<br><br><a href="#calculator" onclick="document.querySelector('#calculator').scrollIntoView({behavior:'smooth'}); closeAIChatbot();">क्यालकुलेटर खोल्नुहोस् →</a><br><br>वा आफ्नो ऋण रकम, ब्याजदर र अवधि बताउनुहोस्, म हिसाब गरिदिन्छु!`;
+            }
+
+            // Services
+            if (lowerMessage.includes('सेवा') || lowerMessage.includes('service')) {
+                return `हाम्रा मुख्य सेवाहरू:<br><br>💼 <strong>व्यापारिक ऋण:</strong> व्यवसाय विस्तारका लागि<br>🌾 <strong>कृषि ऋण:</strong> किसानहरूका लागि विशेष<br>🏠 <strong>घरायसी ऋण:</strong> घर निर्माण/मर्मत<br>👥 <strong>महिला समूह ऋण:</strong> महिला उद्यमीहरूका लागि<br>📚 <strong>शिक्षा ऋण:</strong> विद्यार्थीहरूका लागि<br>🚗 <strong>दुई पाङ्ग्रे ऋण:</strong> मोटरसाइकल खरिद<br><br>विस्तृत जानकारीका लागि <a href="Service.html" target="_blank">सेवा पृष्ठ हेर्नुहोस् →</a>`;
+            }
+
+            // About
+            if (lowerMessage.includes('बारेमा') || lowerMessage.includes('about') ||
+                lowerMessage.includes('कम्पनी') || lowerMessage.includes('company')) {
+                return `स्वस्तिक लघुवित्त बित्तीय संस्था लिमिटेड:<br><br>🏢 <strong>स्थापना:</strong> २०७५ चैत्र १२<br>📊 <strong>अधिकृत पुँजी:</strong> ५ करोड ७७ लाख<br>👥 <strong>सन्तुष्ट ग्राहक:</strong> ७५,०००+<br>🏪 <strong>शाखा कार्यालय:</strong> १५ वटा<br><br>🎯 <strong>हाम्रो लक्ष्य:</strong><br>गरिबी निवारण र आर्थिक समावेशीकरण<br><br>विस्तृत जानकारीका लागि <a href="about.html" target="_blank">हाम्रो बारेमा पृष्ठ हेर्नुहोस् →</a>`;
+            }
+
+            // Thanks
+            if (lowerMessage.includes('धन्यवाद') || lowerMessage.includes('thanks') ||
+                lowerMessage.includes('thank you')) {
+                return `🙏 धन्यवाद!<br><br>तपाईंको विश्वासका लागि हामी आभारी छौं।<br><br>अरू कुनै सहायता चाहिएमा कृपया सोध्नुहोस्।<br><br>स्वस्तिक लघुवित्त - तपाईंको आर्थिक साझेदार! 💼`;
+            }
+
+            // Default response
+            return `माफ गर्नुहोस्, तपाईंको प्रश्न बुझिन। 😅<br><br>कृपया यी विकल्पहरूबाट रोज्नुहोस्:<br>• ऋणका बारेमा जानकारी<br>• ब्याजदरहरू<br>• आवेदन प्रक्रिया<br>• शाखा कार्यालयहरू<br>• सम्पर्क जानकारी<br><br>वा <strong>033-563067</strong> मा फोन गर्नुहोस्।<br><br>म तपाईंलाई सहायता गर्न तयार छु! 💼`;
+        }
+
+        function toggleVoiceInput(force = null) {
+            const voiceBtn = document.getElementById('aiVoiceBtn');
+
+            if (force !== null) {
+                aiChatbotState.isListening = force;
+            } else {
+                aiChatbotState.isListening = !aiChatbotState.isListening;
+            }
+
+            if (aiChatbotState.isListening) {
+                voiceBtn.classList.add('listening');
+                if (aiChatbotState.recognition) {
+                    aiChatbotState.recognition.start();
+                }
+            } else {
+                voiceBtn.classList.remove('listening');
+                if (aiChatbotState.recognition) {
+                    aiChatbotState.recognition.stop();
+                }
+            }
+        }
+
+        function saveChatHistory() {
+            try {
+                localStorage.setItem('aiChatbotHistory', JSON.stringify(aiChatbotState.messages));
+            } catch (e) {
+                console.warn('Could not save chat history');
+            }
+        }
+
+        function loadChatHistory() {
+            try {
+                const history = localStorage.getItem('aiChatbotHistory');
+                if (history) {
+                    aiChatbotState.messages = JSON.parse(history);
+                    // Load last 10 messages
+                    const recentMessages = aiChatbotState.messages.slice(-10);
+                    const messagesDiv = document.getElementById('aiChatbotMessages');
+
+                    recentMessages.forEach(msg => {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.className = `ai-chatbot-message ai-chatbot-message-${msg.type}`;
+
+                        const avatar = msg.type === 'bot' ? '🤖' : '👤';
+
+                        messageDiv.innerHTML = `
+                            <div class="ai-chatbot-message-avatar">${avatar}</div>
+                            <div class="ai-chatbot-message-content">
+                                <div class="ai-chatbot-message-bubble">
+                                    ${msg.content}
+                                </div>
+                                <span class="ai-chatbot-message-time">${msg.time}</span>
+                            </div>
+                        `;
+
+                        messagesDiv.appendChild(messageDiv);
+                    });
+
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }
+            } catch (e) {
+                console.warn('Could not load chat history');
+            }
+        }
+
+        // Auto-show chatbot after 30 seconds
+        setTimeout(() => {
+            if (!aiChatbotState.isOpen) {
+                const toggle = document.getElementById('aiChatbotToggle');
+                toggle.style.animation = 'bounce 1s ease-in-out';
+                setTimeout(() => toggle.style.animation = '', 1000);
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
